@@ -1,0 +1,121 @@
+//-------------------------------------
+// Form Component
+//-------------------------------------
+form-component,
+.c-form-component {
+    @keyframes spinner-animate {
+        0% {
+            filter: blur(10px);
+            transform: rotate(0deg);
+        }
+        50% {
+            filter: blur(0px);
+        }
+        100% {
+            filter: blur(10px);
+            transform: rotate(360deg);
+        }
+    }
+
+    .loading {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: 0rem;
+        padding: 20px;
+        width: 1.5rem;
+        height: 1.5rem;
+        color: $dark-gray;
+
+        &:before {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: $color-light;
+            background-position: center;
+            content: '';
+            transition: all ease 0.25s;
+            transform-origin: 0% 0%;
+            animation: spinner-animate 1.5s cubic-bezier(.3, .5, .7, .5) infinite;
+            transform-style: preserve-3D;
+        }
+    }
+    input {
+        outline: none;
+        border-width: 0px 0px 2px 0px;
+        border-style: solid;
+        border-color: $dark-med-gray;
+        border-radius: 2px;
+        background: rgba(0, 0, 0, 0);
+        transition: border $transition-curve 0.25s;
+
+        &:focus {
+            border-color: $light;
+        }
+    }
+    .ng-touched.ng-valid {
+        border-color: $primary!important;
+
+        & + button[class="rset"] {
+            border-color: $primary;
+            pointer-events: auto;
+        }
+        &.hasValue + button[class="rset"] {
+            border-color: $primary;
+            background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MCcgaGVpZ2h0PSc1MCc+YSA8bGluZSBzdHJva2U9JyMyMmM1OTYnIHN0cm9rZS13aWR0aD0nMycgeDE9JzE2JyB5MT0nMTYnIHgyPSczMycgeTI9JzMzJyAvPmEgPGxpbmUgc3Ryb2tlPScjMjJjNTk2JyBzdHJva2Utd2lkdGg9JzMnIHgxPSczMycgeTE9JzE2JyB4Mj0nMTYnIHkyPSczMycgLz5hIDwvc3ZnPg==");
+            pointer-events: auto;
+        }
+    }
+    .ng-touched.ng-invalid {
+        border-color: $warning-red;
+
+        & + button[class="rset"] {
+            border-color: $warning-red;
+            pointer-events: auto;
+        }
+        &.hasValue + button[class="rset"] {
+            border-color: $warning-red;
+            background-image: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc1MCcgaGVpZ2h0PSc1MCc+IDxsaW5lIHN0cm9rZT0nI2UzNGMzYScgc3Ryb2tlLXdpZHRoPSc1JyB4MT0nMTYnIHkxPScxNicgeDI9JzMzJyB5Mj0nMzMnIC8+IDxsaW5lIHN0cm9rZT0nI2UzNGMzYScgc3Ryb2tlLXdpZHRoPSc1JyB4MT0nMzMnIHkxPScxNicgeDI9JzE2JyB5Mj0nMzMnIC8+IDwvc3ZnPg==") !important;
+            pointer-events: auto;
+        }
+    }
+    &--default {
+        float: left;
+        margin-bottom: size(medium);
+        width: 100%;
+    }
+    &--noLabel {
+        label {
+            display: none;
+        }
+    }
+    &--inline {
+        c-show-error {
+            display: none
+        }
+    }
+    &--inverted {
+        color: $light;
+
+        input {
+            outline: none;
+            border-width: 0px 0px 2px 0px;
+            border-style: solid;
+            border-color: $light-gray;
+            border-radius: 2px;
+            background: rgba(0, 0, 0, 0);
+            color: $light;
+            transition: border $transition-curve 0.25s;
+
+            &::-webkit-input-placeholder {
+                color: $light-med-gray;
+            }
+            &::-moz-placeholder,
+            &:-ms-input-placeholder,
+            &:-moz-placeholder {
+                color: $light-med-gray;
+            }
+        }
+    }
+}

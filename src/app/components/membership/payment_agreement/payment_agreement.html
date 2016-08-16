@@ -1,0 +1,28 @@
+<div id="paymentAgreement" class="o-card o-card--center o-card--confirmation">
+	<div class="o-card__title">
+		<template [ngIf]="type==='Card' && state === null">
+			<h5>Can you confirm if you are the cardholder?</h5>
+		</template>
+		<template [ngIf]="type==='Card' && state === 'rejectCardholder'">
+			<h5>We need to store the cardholders payment information securely to complete your purchase.<br><br> Can you confirm that
+				the cardholder has consented to their payment details being stored for use with this AA product only?</h5>
+		</template>
+		<template [ngIf]="type==='Card' && state === 'storePayment'">
+			<h5>We need to store your payment information securely to complete your purchase.<br><br> Please confirm if you would like
+				your payment details stored for:</h5>
+		</template>
+	</div>
+	<div class="o-card__content">
+		<template [ngIf]="type==='Card' && state === null">
+			<button [outline]="{color:'primary'}" (onClick)="state = 'storePayment' " class="btn btn--expand">I am the cardholder</button>
+			<button [outline]="{color:'primary'}" (onClick)="state = 'rejectCardholder' " class="btn btn--expand">I am not the cardholder</button>
+		</template>
+		<template [ngIf]="type==='Card' && state === 'rejectCardholder'">
+			<button [outline]="{color:'primary'}" (onClick)="acceptAgreement('single')" @successBump="singleSuccessBtn" class="btn btn--expand">Confirm</button>
+		</template>
+		<template [ngIf]="type==='Card' && state === 'storePayment'">
+			<button [outline]="{color:'primary'}" (onClick)="acceptAgreement('all')" class="btn btn--expand">All Products</button>
+			<button [outline]="{color:'primary'}" (onClick)="acceptAgreement('single')" class="btn btn--expand">Only this product</button>
+		</template>
+	</div>
+</div>

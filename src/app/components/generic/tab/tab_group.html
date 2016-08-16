@@ -1,0 +1,9 @@
+<div class="tab__header">
+	<div class="tab__link" *ngFor="let tab of tabs;let i = index" (click)="select(tab)" [class.selected]="tab.isSelected">
+		<button class="btn btn--text btn--transparent" [class.active]="tab.isSelected">{{tab.value}}</button>
+	</div>
+</div>
+<div class="content">
+	<ng-content></ng-content>
+</div>
+

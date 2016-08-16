@@ -1,0 +1,38 @@
+<section>
+	<form #lForm *ngIf="loginVisible" [formGroup]="loginForm" class="m-save-quote-signin__login-form">
+		<form-component
+				class="c-form-component--default"
+				[form]="loginForm"  
+				[field]="emailField">
+		</form-component>
+		<form-component
+				class="c-form-component--default"
+				[form]="loginForm"  
+				[field]="passwordField">
+		</form-component>
+	</form>
+	<form #rForm *ngIf="!loginVisible" [formGroup]="registrationForm" class="m-save-quote-signin__login-form">
+		<form-component
+				class="c-form-component--default"
+				[form]="registrationForm"  
+				[field]="emailField">
+		</form-component>
+		<form-component
+				class="c-form-component--default"
+				[form]="registrationForm"  
+				[field]="passwordField">
+		</form-component>
+		<form-component
+				class="c-form-component--default"
+				[form]="registrationForm"  
+				[field]="passwordFieldConf">
+		</form-component>
+	</form>
+	<div class="m-save-quote-signin__button-group">
+		<button *ngIf="loginVisible" [disabled]="!loginForm.valid" (click)="login()" class="btn btn--yellow">Login</button>
+		<button (click)="register()" class="btn btn--yellow">Register</button>
+	</div>
+	<div *ngIf="resetPassword">
+		<button><a target="_blank" href="https://www.theaa.ie/myaa/request-password-reset.aspx">Reset Password</a></button>
+	</div>
+</section> 

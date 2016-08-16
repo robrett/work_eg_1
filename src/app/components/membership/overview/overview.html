@@ -1,0 +1,81 @@
+<div *ngIf="isVisible" class="background"></div>
+<section class="o-link_group">
+    <article class="o-links" id="main">
+        <header>
+            <h6>Your Cover</h6>
+            <a routerLink="/">Change</a>
+        </header>
+        <ul id="overview__addons__list" class="o-list--plain">
+            <li *ngFor="let option of options">{{option.display}}</li>
+        </ul>
+
+    </article>
+   
+</section>
+
+<section class="o-link_group">
+    <article class="o-links">
+        <header>
+            <h6>Your Details</h6>
+            <a *ngIf="primaryMember" routerLink="/your_details">Change</a>
+        </header>
+        <ul id="overview__primary__list" class="o-list--plain" *ngIf="primaryMember">
+            <li>{{primaryMember.firstName}} {{primaryMember.surname}}</li>
+            <li>
+                <span *ngIf="primaryMember?.addressLine1">{{primaryMember.addressLine1}}, </span>
+                <span *ngIf="primaryMember?.addressLine2">{{primaryMember.addressLine2}}, </span>
+                <span *ngIf="primaryMember?.area">{{primaryMember.area.description || primaryMember.area }}, </span>
+                <span *ngIf="primaryMember?.county">{{primaryMember.county.description || primaryMember.county}}</span></li>
+            <li>{{primaryMember.phoneNumber}}</li>
+            <li>{{primaryMember.email}}</li>
+        </ul>
+
+    </article>
+</section>
+<section class="o-link_group">
+ <article class="o-links">
+        <header>
+            <h6>Additional Members</h6>
+            <a *ngIf="members.length > 0" routerLink="/friends_and_family">Change</a>
+        </header>
+        <ul id="overview__members__list" class="o-list--plain">
+            <li *ngFor="let member of members">{{member.firstName}} {{member.surname}}</li>
+        </ul>
+
+    </article>
+</section>
+<section class="o-link_group">
+    <article class="o-links">
+        <header>
+            <h6>Price Breakdown</h6>
+        </header>
+        <ul *ngIf="!breakdown" id="overview__breakdown__list" class="o-list--plain">
+            <li class="c-overview__price" *ngFor="let option of options">{{option?.display}}
+                <span *ngIf="option?.price.monthly.amount!==0">{{option?.price | pricefrequency:priceFrequency }}</span>
+                <span *ngIf="option?.price.monthly.amount===0">Free</span>
+            </li>
+            <li class="c-overview__price" *ngFor="let member of members">
+                {{member?.firstName || 'Additional Member'}} {{member?.surname}}
+                <span *ngIf="member.placeholder===true"></span>
+                <span *ngIf="member.price.monthly.amount!==0">{{member?.price | pricefrequency: priceFrequency }}</span>
+
+                <span *ngIf="member.price.monthly.amount==0">FREE</span>
+            </li>
+            <li class="c-overview__price"><strong>Total</strong><span><strong>{{price?.pretty}}</strong></span></li>
+        </ul>
+        <ul *ngIf="breakdown" id="overview__breakdown__list" class="o-list--plain">
+            <li class="c-overview__price" *ngFor="let option of breakdown">{{option?.description}}
+                <span *ngIf="option?.price.monthly.amount!==0">{{option?.price | pricefrequency:priceFrequency }}</span>
+                <span *ngIf="option?.price.monthly.amount===0">Free</span>
+            </li>
+            <li class="c-overview__price"><strong>Total</strong><span><strong>{{price.pretty}}</strong></span></li>
+
+        </ul>
+
+    </article>
+    <div class="btn--group">
+        <button [class.btn--primary]="priceFrequency==='monthly'" (click)="setPricingFrequency('monthly')" class="btn btn--outline">Pay Monthly</button>
+        <button [class.btn--primary]="priceFrequency==='annual'" (click)="setPricingFrequency('annual')" class="btn btn--outline">Pay Annually</button>
+    </div>
+    
+</section>

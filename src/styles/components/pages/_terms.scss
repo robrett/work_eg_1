@@ -1,0 +1,54 @@
+//-------------------------------------
+// #TERMS
+//-------------------------------------
+
+
+p-terms {
+  @include media($mobile){
+        padding: 1.5rem 0 0!important;
+    }
+
+  padding-top:0!important
+}
+.c-terms {
+  margin-bottom: size(huge);
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: $primary;
+  }
+  &__content {
+    p {
+      font-size: 1rem;
+      line-height: 2;
+    }
+    a {
+      margin: 0;
+      margin-left: 5px;
+      color: $yellow;
+      font-size: inherit;
+    }
+    .btn--checkbox {
+      margin-right: size(medium);
+      border: 1px solid $yellow;
+      color: $yellow;
+      font-weight: bold;
+
+      &.active {
+        border: 1px solid $dark;
+        color: $dark;
+      }
+    }
+    .u-flex {
+      align-content: center;
+      margin-top: size(huge);
+
+      p {
+        display: flex;
+        align-items: center;
+        margin: 0;
+      }
+    }
+  }
+}

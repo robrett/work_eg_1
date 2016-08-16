@@ -1,0 +1,166 @@
+<label *ngIf="field.label" for="">{{field.label}}</label>
+<form-group>
+    <!-- Email with AACheck -->
+    <input 
+        *ngIf="field.type=='email'"
+        #input
+        myAALoginDetection
+        [id]="field.name"
+        [attr.name]="field.name"
+        [attr.tabindex]="tabIndex"
+        [formControl]="dynamicControl" 
+        [attr.aria-label]="ariaLabel"
+        [attr.aria-labelledby]="ariaLabelledBy"
+        [attr.aria-disabled]="ariaDisabled"
+        [attr.aria-required]="ariaRequired"
+        [attr.aria-invalid]="ariaInvalid"
+        [attr.autocomplete]="autoComplete" 
+        [class.hasValue]="hasValue"
+        [autofocus]="autoFocus"
+        [disabled]="disabled"
+        [readonly]="readOnly"
+        [placeholder]="placeholder"
+        [type]="field.type" />
+    <!-- Email without AACheck -->
+    <input 
+        *ngIf="field.type=='email-basic'"
+        #input
+        [id]="field.name"
+        [attr.name]="field.name"
+        [attr.tabindex]="tabIndex"
+        [formControl]="dynamicControl" 
+        [attr.aria-label]="ariaLabel"
+        [attr.aria-labelledby]="ariaLabelledBy"
+        [attr.aria-disabled]="ariaDisabled"
+        [attr.aria-required]="ariaRequired"
+        [attr.aria-invalid]="ariaInvalid"
+        [attr.autocomplete]="autoComplete" 
+        [class.hasValue]="hasValue"
+        [autofocus]="autoFocus"
+        [disabled]="disabled"
+        [readonly]="readOnly"
+        [placeholder]="placeholder"
+        type="email" />
+    <!-- Text -->
+    <input 
+        *ngIf="field.type=='text'"
+        #input
+        [id]="field.name"
+        [attr.name]="field.name"
+        [attr.tabindex]="tabIndex"
+        [formControl]="dynamicControl" 
+        [attr.aria-label]="ariaLabel"
+        [attr.aria-labelledby]="ariaLabelledBy"
+        [attr.aria-disabled]="ariaDisabled"
+        [attr.aria-required]="ariaRequired"
+        [attr.aria-invalid]="ariaInvalid"
+        [attr.autocomplete]="autoComplete"
+        [class.hasValue]="hasValue" 
+        [autofocus]="autoFocus"
+        [disabled]="disabled"
+        [readonly]="readOnly"
+        [placeholder]="placeholder"
+        [type]="field.type" />
+    <!-- Number -->
+    <input 
+        *ngIf="field.type=='number'"
+        #input
+        [id]="field.name"
+        [attr.name]="field.name"
+        [attr.tabindex]="tabIndex"
+        [formControl]="dynamicControl" 
+        [attr.aria-label]="ariaLabel"
+        [attr.aria-labelledby]="ariaLabelledBy"
+        [attr.aria-disabled]="ariaDisabled"
+        [attr.aria-required]="ariaRequired"
+        [attr.aria-invalid]="ariaInvalid"
+        [attr.autocomplete]="autoComplete" 
+        [class.hasValue]="hasValue"
+        [autofocus]="autoFocus"
+        [disabled]="disabled"
+        [readonly]="readOnly"
+        [placeholder]="placeholder"
+        type="tel" />
+    <!-- Date -->
+    <input 
+        *ngIf="field.type=='date'"
+        #input
+        mask="99/99/9999"
+        [id]="field.name"
+        [attr.name]="field.name"
+        [attr.tabindex]="tabIndex"
+        [formControl]="dynamicControl" 
+        [attr.aria-label]="ariaLabel"
+        [attr.aria-labelledby]="ariaLabelledBy"
+        [attr.aria-disabled]="ariaDisabled"
+        [attr.aria-required]="ariaRequired"
+        [attr.aria-invalid]="ariaInvalid"
+        [attr.autocomplete]="autoComplete"
+        [class.hasValue]="hasValue" 
+        [autofocus]="autoFocus"
+        [disabled]="disabled"
+        [readonly]="readOnly"
+        [placeholder]="placeholder"
+        type="tel" />
+    <!-- Autocomplete -->
+    <c-auto-complete 
+        *ngIf="field.type=='autocomplete'"
+        (onLoading)="triggerLoading($event)"
+        [class.hasValue]="hasValue"
+        [data]="field.data" 
+        [id]="field.name"
+        [attr.name]="field.name"
+        [form]="form"
+        [formControl]="dynamicControl"
+        [filterBy]="field.filterBy"
+        [placeholder]='placeholder' 
+        [disabled]="disabled">
+    </c-auto-complete>
+    <!-- Password -->
+    <input 
+        *ngIf="field.type=='password'" 
+        type="password" 
+        [id]="field.name"
+        [class.hasValue]="hasValue"
+        [attr.tabindex]="tabIndex"
+        [attr.aria-label]="ariaLabel"
+        [formControl]="dynamicControl"
+        [attr.aria-disabled]="ariaDisabled"
+        [attr.aria-invalid]="ariaInvalid"
+        [attr.aria-labelledby]="ariaLabelledBy"
+        [attr.aria-required]="ariaRequired"
+        [attr.autocomplete]="autoComplete" 
+        [autofocus]="autoFocus"
+        [disabled]="disabled"
+        [readonly]="readOnly"
+        [placeholder]="placeholder">
+    <!-- Sort Code -->
+    <input 
+        *ngIf="field.type=='sortcode'" 
+        type="tel" 
+        mask="99-99-99"
+        [id]="field.name"
+        [class.hasValue]="hasValue"
+        [attr.tabindex]="tabIndex"
+        [attr.aria-label]="ariaLabel"
+        [formControl]="dynamicControl"
+        [attr.aria-disabled]="ariaDisabled"
+        [attr.aria-invalid]="ariaInvalid"
+        [attr.aria-labelledby]="ariaLabelledBy"
+        [attr.aria-required]="ariaRequired"
+        [attr.autocomplete]="autoComplete" 
+        [autofocus]="autoFocus"
+        [disabled]="disabled"
+        [readonly]="readOnly"
+        [placeholder]="placeholder">
+    <!-- Title -->
+    <m-title-selector
+        *ngIf="field.type=='title'" 
+        [control]="dynamicControl" 
+        [class.hasValue]="hasValue"
+        [field]="field" >
+    </m-title-selector>
+    <div *ngIf="loadingVisible" class="loading"></div>
+    <button class="rset" tabindex="-1" type="button" (click)="reset($event)"></button>
+</form-group>
+<c-show-error [display]="field.label" [form]="form" [controlPath]="field.name" [errors]="errorList"></c-show-error>

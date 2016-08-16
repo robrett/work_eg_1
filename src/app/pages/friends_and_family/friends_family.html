@@ -1,0 +1,11 @@
+<section class="container">
+    <h2 class="title">Add Friends & Family</h2>
+    <p><strong>Please note:</strong> Additional Members must live at the same address as the core Member</p>
+    <article class="grid">
+        <m-add-member-card (onDelete)="deleteMember($event)" (onSave)="saveMember($event)" *ngFor="let member of members" [data]="member"></m-add-member-card>
+    </article>
+</section>
+<pu-fullscreen channel="testimonials">
+    <pu-testimonials [outcome]="outcome"></pu-testimonials>
+</pu-fullscreen>
+<c-fixed-nav (onNavigate)="openTestimonials()" [prev]="page.prev" ></c-fixed-nav>

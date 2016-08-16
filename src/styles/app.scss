@@ -1,0 +1,193 @@
+@import "base/reset";
+@import "grid";
+@import "mixins";
+@import "settings/globals";
+@import "settings/colours";
+@import "settings/typography";
+@import "settings/responsive";
+@import "tools/functions";
+@import "tools/sizing";
+@import "tools/typography";
+@import "tools/positioning";
+@import "tools/responsive";
+@import "tools/utilities";
+@import "variables";
+@import "base/typography";
+@import "base/utils";
+@import "base/buttons";
+@import "base/card";
+@import "base/flag";
+@import "base/flex";
+@import "base/grid";
+@import "base/inputs";
+@import "base/link_group";
+@import "base/lists";
+@import "base/table";
+@import "base/slot";
+@import "base/spinners";
+@import "components/shared/accordian";
+@import "components/shared/autocomplete";
+@import "components/shared/cards_checkbox";
+@import "components/shared/cards_confirmation";
+@import "components/shared/cards_error";
+@import "components/shared/delete_confirmation";
+@import "components/shared/fixed_nav";
+@import "components/shared/form_component";
+@import "components/shared/notifications";
+@import "components/shared/overview";
+@import "components/shared/selector_group";
+@import "components/shared/selector";
+@import "components/shared/show_error";
+@import "components/shared/tab";
+@import "components/shared/top_nav";
+@import "components/pages/included";
+@import "components/pages/your_details";
+@import "components/pages/friends_family";
+@import "components/pages/breakdown";
+@import "components/pages/error";
+@import "components/pages/payment_options";
+@import "components/pages/payment";
+@import "components/pages/confirmation";
+@import "components/pages/terms";
+@import "components/pages/retrieve_quote";
+@import "components/popups/p_overlay";
+@import "components/popups/p_fullscreen";
+@import "components/popups/p_default";
+@import "components/popups/p_testimonials";
+@import "components/membership/add_member_card";
+@import "components/membership/addon_list";
+@import "components/membership/cc_form";
+@import "components/membership/dd_form";
+@import "components/membership/save_quote_button";
+@import "components/membership/payment_agreement";
+@import "components/membership/promo_code_button";
+@import "components/membership/address_list";
+@import "components/membership/quotes_list";
+@import "components/membership/breakdown";
+@import "components/membership/myAA_signin";
+
+
+@import "libs/iscroll";
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html,
+body {
+    @include font-size(regular);
+    @include font-smoothing;
+    text-size-adjust: 100%;
+    overflow-y: scroll;
+    ::selection {
+        background-color: palette(brand);
+        color: black;
+    }
+    width: 100%;
+    min-height:100vh;
+    background-color:$dark;
+}
+
+app {
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+}
+
+main.content {
+    position: relative;
+    @include outer-container(100%);
+    min-height: calc(100vh - #{$navHeightDefault * 2});
+    z-index: $routerOutlet - 1;
+    padding-top: $navHeightDefault;
+    @include media($mobile) {
+        padding-top: $navHeightMobile;
+        min-height: calc(100vh - #{$navHeightMobile * 2});
+    }
+    router-outlet + * {
+        position: relative;
+        @include span-columns(12);
+        padding-top: $defaultContainerPadding;
+        background-color: $dark;
+        color: $light;
+        z-index: $routerOutlet;
+        min-height: calc(100vh - #{$navHeightDefault});
+        @include media($mobile) {
+            padding-top: $defaultContainerPaddingMobile;
+            min-height: calc(100vh - #{$navHeightMobile});
+        }
+    }
+}
+
+.container {
+    @include outer-container;
+    @include media($lg-desktop) {
+        max-width: 1400px;
+    }
+    @include media($desktop) {
+        max-width: 1100px;
+    }
+    @include media($tablet) {
+        max-width: 900px;
+    }
+    @include media($tabletPortrait) {
+        max-width: 720px;
+    }
+    @include media($smallTablet) {
+        max-width: 570px;
+    }
+    @include media($mobile) {
+        padding: 0 $navPaddingMobile;
+        max-width: 100%;
+        &.noPadding {
+            padding: 0;
+        }
+    }
+}
+
+.container--noSides {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container--flex {
+    @include display(flex);
+    // margin-top: -$defaultContainerPadding;
+    &--center {
+        @include display(flex);
+        width: 100%;
+        min-height: calc(100vh - #{$navHeightDefault * 2});
+        height: calc(100vh - #{$navHeightDefault * 2});
+        @include align-items(center);
+        @include justify-content(center);
+        -ms-flex-pack: center;
+        -ms-flex-align:center;
+        
+        @include media($mobile) {
+            @include align-items(flex-start);
+            @include justify-content(flex-start);
+        }
+
+    }
+    &--nofooter {
+        min-height: calc(100vh - #{$navHeightDefault});
+        height: calc(100vh - #{$navHeightDefault});
+    }
+    @include media($mobile) {
+        padding: 0 $defaultContainerPaddingMobile;
+        margin-top: auto;
+    }
+}
+
+.outer-container {
+    max-width: 100%;
+    background-color: $light;
+    color: $dark;
+    padding-top: $defaultContainerPadding;
+    @include media($mobile) {
+        padding-top: $defaultContainerPaddingMobile;
+    }
+}

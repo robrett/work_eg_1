@@ -1,0 +1,111 @@
+//-------------------------------------
+// Your Details Page
+//-------------------------------------
+p-your-details {
+    .fc--addressLine1,
+    .fc--addressLine2,
+    .fc--title {
+        @include span-columns(12);
+        @include flex(1 1 100%);
+        @include media($mobile) {
+            @include span-columns(4);
+            @include flex(1 1 100%);
+        }
+    }
+    .fc--email,
+    .fc--firstName,
+    .fc--surname,
+    .fc--dateOfBirth,
+    .fc--county,
+    .fc--area,
+    .fc--phoneNumber {
+        @include span-columns(6);
+        @include flex(1 1 50%);
+        @include media($mobile) {
+            @include span-columns(4);
+            @include flex(1 1 100%);
+        }
+    }
+    .fc--surname,
+    .fc--phoneNumber,
+    .fc--county {
+        @include omega();
+    }
+    .fc--phoneNumber {
+        @include media($mobile) {
+            margin-bottom: size(medium);
+        }
+
+        margin-bottom: size(large)
+    }
+    .fc--title button[class="rset"] {
+        display: none;
+    }
+    .fc--title m-title-selector{
+        width: 100%;
+    }
+    .fc--title c-selector-group {
+        margin: 0;
+        width: 100%;
+    }
+    .fc--title c-selector-group.ng-valid c-selector {
+        border-color: $dark-med-gray;
+
+        &.isSelected {
+            border-color: $primary;
+        }
+    }
+    .fc--title c-selector {
+        @include display(flex);
+        @include flex-flow(row wrap);
+        @include justify-content(center);
+        @include align-items(center);
+        @include type-setting(1);
+        @include media($mobile) {
+            margin: 10px 5px 0;
+            min-width: 60px;
+        }
+
+        z-index: 9;
+        flex: 1 1 50px;
+        margin: 10px 20px 0;
+        min-width: 100px;
+        height: 4rem;
+        border: 3px solid $light;
+        border-radius: 2px;
+        cursor: pointer;
+
+        &.isSelected {
+            outline: none;
+            border-color: $primary;
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    button#validateAddBtn {
+        @include media($mobile) {
+            @include span-columns(4);
+
+            width: 100%;
+        }
+
+        margin-bottom: size(small);
+        width: 100%
+    }
+    .btn__container {
+        position: relative;
+        float: left;
+        width: 100%;
+    }
+    .m-address-list {
+        display: none;
+
+        button.o-slot {
+            margin-bottom: size(small);
+        }
+    }
+}

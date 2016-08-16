@@ -1,0 +1,17 @@
+<div class="container" @openList="open">
+    <div *ngFor="let quote of quotes" class="m-quote is-small">
+        <div class="m-quote__content">
+            <span class="m-quote__date">{{quote.date}}</span>
+            <span class="m-quote__details">{{quote.name}}</span>
+            <span class="m-quote__price">{{quote.price.annual.pretty}}</span>
+            
+            <a class="m-quote__edit" href="#"> </a>
+        </div>
+        <div class="m-quote__cta">
+            <button [class.btn--isLoading]="isLoading" *ngIf="quote.expired" (click)="requoteQuote(quote)" class="btn btn--yellow">Requote</button>
+            <button [class.btn--isLoading]="isLoading" *ngIf="!quote.expired" (click)="retrieveQuote(quote)" class="btn btn--yellow">Buy Now</button>
+        </div>
+    </div>
+    <button id="quoteListCloseBtn" (click)="cancel()" class="btn--close btn--arrow"></button>
+
+</div>

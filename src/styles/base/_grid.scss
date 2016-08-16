@@ -1,0 +1,22 @@
+//-------------------------------------
+// Grid
+//-------------------------------------
+.grid {
+    float: left;
+    width: 100%;
+}
+
+.one--half {
+    @include span-columns(6);
+    @include media($mobile) {
+        @include span-columns(4);
+        @include omega();
+        @include marginBottom(0, 0.25);
+    }
+}
+
+.one--quarter {}
+
+.one--third {}
+
+.one--two-thirds {}

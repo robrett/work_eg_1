@@ -1,0 +1,19 @@
+<section class="container">
+    <div *ngIf="isFieldsWarningVisible" class="o-slot--warning"><h4>Yo, Check Yo Damn Fields Stupid User Person</h4></div>
+    <h3 class="title">Simply fill in some details below</h3>
+    
+    <form #form [formGroup]="userDetailsForm">
+        <form-component 
+            *ngFor="let field of fields" 
+            class="c-form-component--default" 
+            [form]="userDetailsForm" 
+            [field]="field">
+        </form-component>
+    </form>
+    
+    <div class="btn__container">
+        <button [class.btn--isLoading]="isReadyLoading && !isReadyToValidate" id="validateAddBtn" *ngIf="isReadyToValidate||isReadyLoading" (click)="openValidateAddress()" class="btn btn--transparent">{{validateAddressText}}</button>
+    </div>
+    <m-address-list (onReadyValid)="onReadyAddress()" (onLoading)="onLoadingAddress()" (onValid)="setValidatedAddress($event)" [data]="address" [visible]="isAddressListVisible"></m-address-list>
+</section>
+<c-fixed-nav (onNavigate)="navigateNext($event)" [next]="page.next" [prev]="page.prev" [disabled]="!userDetailsForm.valid||!isValidated"></c-fixed-nav>

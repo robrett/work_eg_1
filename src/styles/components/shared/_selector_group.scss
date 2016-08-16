@@ -1,0 +1,14 @@
+//-------------------------------------
+// Selector Group
+//-------------------------------------
+c-selector-group {
+    @include display(flex);
+
+    &.isColumn {
+        flex-direction: column;
+    }
+}
+
+c-selector-group:focus {
+    outline-color: white;
+}

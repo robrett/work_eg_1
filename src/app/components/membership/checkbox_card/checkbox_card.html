@@ -1,0 +1,12 @@
+<header>
+    <div class="checkbox-card__checked"></div>
+    <ng-content select="[header]"></ng-content>
+</header>
+<div (click)="toggleContentCollapse($event)" class="c-checkbox-card__subheader">
+    <ng-content select="[subheader]"></ng-content>
+    <div *ngIf="isContentCollapsable" [class.invert]="isContentCollapsed==='visible'" class="btn btn--close btn--arrow"></div>
+</div>
+<section [@collapseContent]="isContentCollapsed" class="c-checkbox-card__content">
+    <ng-content select="[content]"></ng-content>
+</section>
+<ng-content select="[cta]"></ng-content>

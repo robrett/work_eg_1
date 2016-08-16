@@ -1,0 +1,198 @@
+//-------------------------------------
+// Notifications Bar
+//-------------------------------------
+c-notification-bar {
+    @include media($mobile) {
+        top: $navHeightMobile;
+    }
+
+    position: fixed;
+    top:$navHeightDefault;
+    z-index: $notificationsBarZ;
+    display: block;
+    width: 100%;
+
+    &> section {
+        position: relative;
+        z-index: 9;
+        float: left;
+        width: 100%;
+    }
+    c-notification {
+        display: none;
+
+        &:first-of-type {
+            display: block;
+        }
+    }
+}
+
+//-------------------------------------
+// Notification
+//-------------------------------------
+.c-notification {
+    @include media($upToDesktop) {
+        padding: size(small) $navPaddingMobile;
+    }
+
+    position: relative;
+    z-index: $topNavZ;
+    display: flex;
+    float: left;
+    padding: size(small) $navPaddingDefault;
+    width: 100%;
+    background-color: $primary;
+    text-align: left;
+
+    a,
+    p {
+        color: $light
+    }
+    &__question {
+        @include display(flex);
+        //margin: size(small) 0 0;
+        @include media($upToDesktop) {
+            @include flex-direction(row);
+
+            align-items: center;
+
+            br {
+                display: none;
+            }
+        }
+
+        width: 100%;
+
+        header,
+        .btn {
+            @include flex(1 1 auto);
+            @include media($upToDesktop) {
+                margin-bottom: size(medium);
+            }
+            @include media($desktopUp) {
+                margin-right: size(small);
+            }
+
+            max-height: 48px;
+        }
+    }
+    &__form {
+        @include media($upToDesktop) {
+            flex-direction: column;
+        }
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        width: 100%;
+
+        header {
+            @include media($mobile) {
+                display: none;
+            }
+
+            flex: 1 1 auto;
+            align-self: center;
+            width: 100%;
+            color: $dark
+        }
+        form {
+            @include media($upToDesktop) {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            display: flex;
+            align-items: flex-end;
+            margin: 0;
+
+            form-component,
+            c-error-button {
+                @include media($upToDesktop) {
+                    margin: size(tiny) 0;
+                    width: 100%;
+                }
+
+                flex: 1 1 auto;
+                margin: 0 0 0 size(medium)
+            }
+        }
+        .btn--close {
+            @include media($upToDesktop) {
+                margin: 0;
+            }
+
+            position: relative;
+            top: 0;
+            right: 0;
+            flex: 1 0 28px;
+            margin: 0 0px 0 size(large)
+        }
+    }
+    &__message {
+        @include font-size(small);
+
+        flex: 1 1 auto;
+        align-self: center;
+        margin: 0;
+        color: $light;
+        font-weight: 600;
+    }
+    &__message+ .btn--close {
+        position: relative;
+        top: 0;
+        right: 0;
+        flex: 0 0 28px;
+        align-self: initial;
+        float: left;
+        padding-top: 0.75rem;
+        border-color: white;
+    }
+    .btn--close.btn--arr {
+        @include media($mobile) {
+            background: none!important;
+
+            &:hover,
+            &:active {
+                background: none!important;
+            }
+            &:after {
+                @include transform(rotate(-45deg));
+
+                position: absolute;
+                display: inline-block;
+                margin-left: -7.5px;
+                width: 15px;
+                height: 15px;
+                border-top: 3.5px solid $dark-med-gray;
+                border-right: 3.5px solid $dark-med-gray;
+                content: "";
+            }
+        }
+    }
+    &--confirmation {
+        @include display(flex);
+        @include media($upToDesktop) {
+            flex-direction: column;
+
+            .c-notification__message {
+                margin-bottom: size(small);
+                margin-left: 0;
+            }
+        }
+
+        // .c-notification__message {
+        //     margin-left: 180px;
+        // }
+    }
+    &--login {
+        z-index: 14;
+        background-color: $light-gray;
+    }
+    &--error {
+        z-index: 15;
+        background-color: $secondary;
+        text-align: left;
+    }
+}

@@ -1,0 +1,65 @@
+//-------------------------------------
+// Table
+//-------------------------------------
+table {
+    margin-bottom: size(medium);
+    width: 100%;
+
+    .o-table__row {
+        display: table;
+        box-sizing: border-box;
+        width: 100%;
+        table-layout: fixed;
+    }
+    .o-table__cell {
+        position: relative;
+        display: table-cell;
+        flex: 1;
+        flex-direction: column;
+    }
+    .o-table__row {
+        display: flex;
+    }
+    // display: block is needed to allow inline-block content inside a cell, if there is vertical alignment, we need display: flex
+    .o-table__cell {
+        display: block;
+    }
+    .o-table__cell--valign-middle,
+    .o-table__cell--valign-bottom {
+        display: flex;
+    }
+    .o-table__cell-min {
+        flex: none auto;
+        width: 1%;
+    }
+    .o-table__cell--max {
+        flex: 1 100%;
+        width: 100%;
+    }
+    .o-table__row {
+        padding: size(medium) 8px;
+        border-spacing: 8px 0;
+        border-collapse: seperate;
+    }
+    .o-table__cell {
+        margin-right: 8px;
+    }
+    .o-table__cell.o-table__cell--nowrap {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .o-table__cell.o-table__cell-valign-middle {
+        justify-content: center;
+        vertical-align: middle;
+    }
+    .o-table__cell.o-table__cell--valign-bottom {
+        justify-content: flex-end;
+        vertical-align: bottom;
+    }
+    .o-table__cell.o-table__cell--align-center {
+        text-align: center;
+    }
+    .o-table__cell.o-table__cell--align-right {
+        text-align: right;
+    }
+}

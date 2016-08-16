@@ -1,0 +1,29 @@
+pu-fullscreen {
+
+    visibility: hidden;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height:100vh;
+    background-color: $light;
+    z-index: $popupZ;
+    
+    &.isVisible {
+        visibility: visible;
+    }
+    .pu-container {
+        @include span-columns(8);
+        @include shift(2);
+        
+        @include media($mobile){
+             @include span-columns(4);
+             @include shift(0);
+             padding: 0 $navPaddingMobile;
+        }
+        
+        &.noPadding button{
+            padding: 0 $buttonPaddingDefault + 5;
+        }
+    }
+}

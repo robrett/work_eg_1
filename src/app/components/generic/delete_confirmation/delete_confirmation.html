@@ -1,0 +1,6 @@
+<div @initButtonVisible="initBtnVisible" (click)="open()" class="c-delete-confirmation__remove-item"></div>
+<div @confirmationVisible="confGrpVisible" class="c-delete-confirmation__group">
+	<p>Are you sure?</p>
+	<button (click)="confirm()" class="btn">Yes</button>
+	<button (click)="close()" class="btn">No</button>
+</div>

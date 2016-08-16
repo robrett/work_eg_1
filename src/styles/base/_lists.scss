@@ -1,0 +1,56 @@
+//-------------------------------------
+// Lists
+//-------------------------------------
+ul.o-list--plain {
+    margin: 0;
+    padding: 0;
+}
+
+ul.o-list--plain li {
+    margin: 0;
+    padding: 0 0 size(mini);
+    list-style: none;
+}
+
+.noPadding li {
+    padding: $buttonPaddingDefault $buttonPaddingDefault + 5;
+}
+
+ul.o-list {
+    margin: 0;
+    margin-bottom: size(large);
+    padding: 0;
+}
+
+ul.o-list li {
+    border-bottom: 1px solid $dark-med-gray;
+    background-color: transparent;
+    color: $dark;
+    list-style: none;
+    text-transform: none;
+    font-weight: 400;
+}
+
+ul.o-list li span {
+    float: right;
+}
+
+ul.o-list--double {
+    @include media($tablet) {
+        margin-bottom: size(medium);
+    }
+
+    margin: 0;
+    margin-bottom: size(medium);
+    padding: 0
+}
+
+ul.o-list--double li {
+    padding: size(small) 0;
+}
+
+ul.o-list--column {
+    @include display(flex);
+    @include flex-direction(column);
+    @include flex-wrap(wrap);
+}

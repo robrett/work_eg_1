@@ -1,0 +1,53 @@
+//-------------------------------------
+// Direct Debit Form
+//-------------------------------------
+m-dd-form {
+    @include media($mobile) {
+        float: left;
+        margin: 0 auto;
+        min-width: 100%;
+    }
+
+    margin: auto;
+    width: 600px
+}
+
+.o-dd_form {
+    @include display(flex);
+    @include flex-direction(column);
+
+    position: relative;
+    justify-content: flex-end;
+    float: left;
+    min-height: 610px;
+    width: 100%;
+
+    form {
+        margin-bottom: size(medium);
+    }
+    form-component:last-child {
+        margin-bottom: 0;
+    }
+    &__form {
+        position: absolute;
+        top: 0;
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+    &__validation {
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        margin-bottom: 1.5rem;
+        margin-bottom: size(medium);
+        min-height: 480px;
+        width: 100%;
+
+        h5 {
+            margin-bottom: size(small);
+        }
+    }
+    .btn {
+        margin-bottom: size(small);
+    }
+}

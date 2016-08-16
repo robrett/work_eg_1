@@ -1,0 +1,20 @@
+//-------------------------------------
+// Friends and Family Page
+//-------------------------------------
+p-friends-and-family {
+    @include media($mobile) {
+        & > section {
+            min-height: $containerMinHeightMobile
+        }
+        .grid > m-add-member-card {
+            @include span-columns(4);
+
+            margin-bottom: size(medium);
+        }
+        
+    }
+
+    .grid > m-add-member-card {
+        @include span-columns(4);
+    }
+}

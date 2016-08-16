@@ -1,0 +1,31 @@
+<div class="o-dd_form">
+	<section class="o-dd_form__form" *ngIf="!isValidating" @fadeInOut="isValidating === false ? 'active' : 'inactive'">
+		<h2 class="title">Please enter your bank details</h2>
+		<c-tab-group>
+			<c-tab id="debit" selected value="Use Account and Sort Code">
+				<m-debit-form (onValidationInit)="triggerValidationLoading($event)"  (onValidationSuccess)="openBankValidation($event)"></m-debit-form>
+			</c-tab>
+			<c-tab id="iban" value="Use BIC and IBAN">
+				<m-iban-form (onValidationInit)="triggerValidationLoading($event)" (onValidationSuccess)="openBankValidation($event)"></m-iban-form>
+			</c-tab>
+		</c-tab-group>
+	</section>
+	<section class="o-dd_form__validation" @fadeInOut="isValidating === true ? 'active' : 'inactive'" *ngIf="isValidating">
+		<label for="BIC">BIC</label>
+		<h5>{{validationDetails.BIC}}</h5>
+		<label for="">IBAN</label>
+		<h5>{{validationDetails.IBAN}}</h5>
+		<label for="">Account Number</label>
+		<h5>{{validationDetails.accountNumber}}</h5>
+		<label for="">Sort Code</label>
+		<h5>{{validationDetails.sortCode}}</h5>
+		<label for="">Bank Name</label>
+		<h5>{{validationDetails.bankName}}</h5>
+		<label for="">Bank Address</label>
+		<h5>{{validationDetails.bankAddress}}</h5>
+	</section>
+	<button (click)="triggerValidation()" *ngIf="!isValidating && isReadyValidate" class="btn btn--yellow btn--expand">Pay Now</button>
+	<button [class.btn--isLoading]="isLoadingValidate" (click)="makePayment()" *ngIf="isValidating || isLoadingValidate" class="btn btn--yellow btn--expand">Confirm</button>
+	<button (click)="isValidating=false" *ngIf="isValidating" class="btn btn--outline btn--expand">Back</button>
+	<button *ngIf="!isValidating" (click)="swapPaymentType()" class="btn btn--outline btn--expand">Or Pay By Card</button>
+</div>

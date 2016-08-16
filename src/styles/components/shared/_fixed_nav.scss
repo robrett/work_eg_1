@@ -1,0 +1,69 @@
+//-------------------------------------
+// Fixed Footer Nav
+//-------------------------------------
+.c-fixed-nav__container {
+    @include display(flex);
+    @include media($mobile) {
+        @include span-columns(4);
+
+        height: $fixedNavContainerMobile;
+    }
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: $fixedNavZ;
+    float: left;
+    width: 100%;
+
+    button {
+        @include flex(2);
+        @include media($upToDesktop) {
+            min-height: $fixedNavHeightTablet;
+            height: $fixedNavHeightTablet;
+        }
+        @include media($mobile) {
+            margin-bottom: 0;
+            min-height: $fixedNavHeightMobile;
+            height: $fixedNavHeightMobile;
+        }
+
+        float: left;
+        margin-bottom: 0;
+        min-height: $fixedNavHeight;
+        height: $fixedNavHeight;
+
+        img {
+            float: left;
+            clear: both;
+            min-height: 28px;
+        }
+        .img_container {
+            min-height: 28px;
+        }
+    }
+    button:first-child {
+        @include flex(1);
+        @include media($mobile) {
+            display: none;
+        }
+    }
+
+}
+
+.c-fixed-nav__spacer {
+    @include media($upToDesktop) {
+        height: $fixedNavSpacerTablet;
+    }
+    @include media($mobile) {
+        height: $fixedNavContainerMobile;
+    }
+
+    float: left;
+    width: 100%;
+    height: $fixedNavSpacerDesktop
+}
+
+&.fixed-nav--noSpacer .c-fixed-nav__spacer {
+    display: none;
+}

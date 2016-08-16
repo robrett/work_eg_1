@@ -1,0 +1,111 @@
+//-------------------------------------
+// Payment Options Page
+//-------------------------------------
+p-payment-options {
+    @include media($mobile) {
+        & > section {
+            min-height: $containerMinHeightMobile
+        }
+    }
+
+    .o-card-grid {
+        @include media($mobile) {
+            @include flex-direction(column)
+        ;
+
+            margin-bottom: 0}
+
+        margin-bottom: size(large);
+        width: 100%
+    }
+    .o-card-grid c-selector {
+        @include span-columns(6);
+        @include media($mobile) {
+            @include span-columns(4);
+        }
+    }
+    .o-card {
+        @include media($lg-desktop) {
+            padding-bottom: 52%;
+        }
+        @include media($mobile) {
+            float: left;
+            padding-bottom: 0;
+            width: 100%;
+            height: 70px;
+        }
+
+        padding-bottom: 30%;
+        height: 0;
+        border: 3px solid $dark-gray;
+
+        h1 {
+            @include type-setting(5);
+
+            text-align: center;
+        }
+        h4 {
+            margin-bottom: 0;
+        }
+        &__title,
+        &__aside {
+            @include media($mobile) {
+                position: relative;
+                float: left;
+                padding: 0 size(medium);
+                height: 70px;
+
+                h4 {
+                    @include media($mobile){
+                        @include font-size(medium);
+
+                        line-height: 63px;
+                    }
+
+                    line-height: 63px;
+                    
+                }
+            }
+
+            position: absolute;
+            padding: size(medium)
+        }
+        &__content {
+            @include media($mobile) {
+                position: relative;
+                top: 0;
+                padding: 0 size(medium);
+                height: 70px;
+                transform: none;
+
+                h1 {
+                    @include type-setting(1);
+
+                    float: right;
+                    line-height: 63px;
+                }
+            }
+
+            position: absolute;
+            top: 50%;
+            padding: size(medium);
+            width: 100%;
+            transform: translateY(-50%)
+        }
+        &__aside {
+            @include media($mobile) {
+                display: none;
+            }
+        }
+    }
+    c-selector.isSelected .o-card {
+        border-color: $light;
+    }
+    c-selector {
+        margin-bottom: size(small);
+    }
+    c-selector .btn {
+        margin-bottom: 0;
+        line-height: 63px;
+    }
+}

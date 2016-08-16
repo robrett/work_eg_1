@@ -1,0 +1,3 @@
+<c-selector-group class="c-selector-group--flex" [init]="control" [data]="field.data" [control]="control" tabindex="0">
+	<c-selector *ngFor="let title of titles" id="cSelector{{title.id}}" value="{{title.id}}">{{title.value}}</c-selector>
+</c-selector-group>

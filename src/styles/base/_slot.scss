@@ -1,0 +1,59 @@
+//-------------------------------------
+// Slot container
+//-------------------------------------
+.o-slot-container {
+    clear: both;
+}
+
+//-------------------------------------
+// Slot Object
+//-------------------------------------
+
+.o-slot {
+    @include font-size(tiny);
+
+    z-index: 9;
+    display: flex;
+    flex: 1 1 50px;
+    flex-flow: row wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: size(small);
+    min-width: 100%;
+    min-height: 3.5rem;
+    border: 4px solid $light;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($dark, 2%);
+    }
+    &.is-active {
+        border-color: $primary;
+    }
+    &.is-inactive {
+        border-color: $dark-med-gray;
+    }
+    &.is-small {
+        min-height: size(large);
+    }
+}
+
+
+.o-slot--warning {
+    @extend .o-slot;
+
+    border-color: $warning-red;
+
+    * {
+        @include font-size(small);
+
+        margin: size(small);
+        width: 100%;
+        color: $warning-red;
+        text-align: center;
+    }
+}

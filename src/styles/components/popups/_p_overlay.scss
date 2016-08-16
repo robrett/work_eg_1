@@ -1,0 +1,41 @@
+pu-overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $light;
+    color: $dark;
+    z-index: $popupZ;
+    &.isVisible {
+        visibility: visible;
+        overflow: auto;
+    }
+    .c-top-nav {
+        background-color: $light;
+        color: $dark;
+        margin-bottom: size(huge);
+        @include media($mobile) {
+            margin-bottom: size(medium);
+        }
+    }
+    .pu-container {
+        @include span-columns(8);
+        @include shift(2);
+        padding-top: $defaultContainerPadding;
+        @include media($upToDesktop) {
+            @include span-columns(6);
+            @include shift(1);
+        }
+        @include media($mobile) {
+            @include span-columns(4);
+            @include shift(0);
+            padding: 0 $navPaddingMobile;
+            max-width: 100%;
+            &.noPadding button {
+                padding: 0 $buttonPaddingDefault + 5;
+            }
+        }
+    }
+}

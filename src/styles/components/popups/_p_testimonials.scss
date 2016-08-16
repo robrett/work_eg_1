@@ -1,0 +1,113 @@
+pu-testimonials {
+    float: left;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: $dark;
+    
+    padding-top: size(big);
+    text-align: center;
+    @include media($mobile) {
+        padding-top: size(large);
+    }
+    
+    .pu-container > h4{
+        margin-bottom: size(medium);
+        
+    }
+    
+    .loading {
+        height: 1.5rem;
+        width: 1.5rem;
+        padding: 20px;
+        margin: 0rem auto size(medium);
+        color: $dark-gray;
+        &:before {
+            content: '';
+            position: absolute;
+            background: $color-light;
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background-position: center;
+            transition: all ease 0.25s;
+            transform-origin: 0% 0%;
+            animation: spinner-animate 1.5s cubic-bezier(.3, .5, .7, .5) infinite;
+            transform-style: preserve-3D;
+        }
+    }
+   
+}
+
+.o-testimonial {
+    
+}
+.o-testimonial__image {
+   
+    @include marginBottom(2,2);
+    @include media($mobile) {
+        margin-bottom: size(medium);
+    }
+   
+    img {
+         width: 300px;
+        height: 300px;
+        padding: 0;
+        object-fit: fill;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+        @include media($mobile) {
+           width: 150px;
+           height: 150px;
+        }
+        
+    }
+}
+.o-testimonial__quote{
+    position: relative;
+    text-align: center;
+    z-index: 9;
+    @include marginBottom(2);
+    h3 {
+        font-weight: 400;
+            @include media($mobile) {
+            @include type-setting(0);
+            line-height: 2;
+        }
+    }
+    &:before {
+        background-image: url($IMG_URL+'assets/images/icons/quote-up.svg');
+        content: "";
+        position: absolute;
+        right: 0;
+        top:-100px;
+        height: 100px;
+        width: 153px;
+        z-index: -1;
+        opacity:0.3;
+        background-repeat: no-repeat;
+        @include media($mobile){
+            top: -55px;
+            width: 100px;
+        }
+    }
+    &:after {
+        background-image: url($IMG_URL+'assets/images/icons/quote-down.svg');
+        content: "";
+        position: absolute;
+        left: 0;
+        top:105px;
+        height: 100px;
+        width: 153px;
+        z-index: -1;
+        opacity:0.3;
+        background-repeat: no-repeat;
+        @include media($mobile){
+            top: 70px;
+            width: 100px;
+        }
+    }
+}
+.o-testimonial__subscript{
+    float: right;
+}

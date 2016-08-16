@@ -1,0 +1,9 @@
+<div @visibleState="isOpen" class="c-notification c-notification--error" *ngIf="notification.type=='error'">
+    <p class="c-notification__message" >{{description}}</p>
+    <button id="notificationCloseBtn" *ngIf="!notification.options.timer" (click)="emitCancel()" class="btn--close btn--red"></button>
+</div>
+
+<div @visibleState="isOpen" class="c-notification" *ngIf="notification.type=='default'">
+    <p class="c-notification__message" [innerHTML]="description"></p>
+    <button id="notificationCloseBtn" (click)="emitCancel()" class="btn--close btn--primary btn--light"></button>
+</div>

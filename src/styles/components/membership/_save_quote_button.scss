@@ -1,0 +1,25 @@
+//-------------------------------------
+// Save Quote Button
+//-------------------------------------
+button[m-save-quote] {
+	@include display(flex);
+
+	align-items: center;
+	justify-content: center;
+	float: left;
+	overflow: hidden;
+	margin: 0;
+	width: 100%;
+
+	span {
+		flex: 1 1 auto;
+
+		img {
+			justify-content: flex-start;
+			margin-left: size(tiny);
+			width: 10px;
+			height: 10px;
+		}
+	}
+
+}

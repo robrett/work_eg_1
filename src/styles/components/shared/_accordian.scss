@@ -1,0 +1,50 @@
+//-------------------------------------
+// Accordian Panel
+//-------------------------------------
+c-accordian-panel,
+.c-accordian-panel {
+    float: left;
+    margin-bottom: 5px;
+    width: 100%;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__header {
+        @include type-setting(0);
+
+        position: relative;
+        padding: size(medium) $buttonPaddingDefault;
+        width: 100%;
+        background-color: $dark-gray;
+        color: $light;
+        cursor: pointer;
+
+        header {
+            max-width: calc(100% - #{$navPaddingMobile + 5});
+        }
+        &:after {
+            position: absolute;
+            top: 50%;
+            right: $navPaddingMobile + 5;
+            display: inline-block;
+            padding: .20em;
+            border: solid $light;
+            border-width: 0 .2em .2em 0;
+            content: "";
+            transform: rotate(45deg) translateY(-50%);
+        }
+    }
+    &__content {
+        @include font-size(small);
+
+        display: block;
+        padding: size(small) size(small);
+        background-color: $light;
+
+        &.isCollapsed {
+            display: none;
+        }
+    }
+
+}

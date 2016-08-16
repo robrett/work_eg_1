@@ -1,0 +1,29 @@
+<div class="c-notification c-notification--login" @visibleState="isOpen">
+        <section *ngIf="!isLoginToMyAA" class="c-notification__question" >
+                <header >
+                        <h6>Login to MyAA</h6>
+                </header>
+                <button (click)="isLoginToMyAA=true" class="btn btn--yellow btn--narrow">Yes, I Want</button>
+                <button id="notificationCloseBtn" (click)="emitCancel()" class="btn btn--yellow btn--narrow">No, Thanks</button>
+        </section>
+        <section *ngIf="isLoginToMyAA" class="c-notification__form">
+                <header >
+                        <h6>Are you already registered with myAA?</h6>
+                </header>
+                <form #form [formGroup]="loginForm">
+                        <form-component
+                                class="c-form-component--inline c-form-component--noLabel"
+                                [form]="loginForm"  
+                                [field]="emailField">
+                        </form-component>
+                        <form-component
+                                class="c-form-component--inline c-form-component--noLabel"
+                                [form]="loginForm"  
+                                [field]="passwordField">
+                        </form-component>
+                        <c-error-button [text]="'Login'" [form]="loginForm" (onContinue)="login()"></c-error-button>
+                </form>
+                <button id="notificationCloseBtn" (click)="emitCancel()" class="btn--close btn--light btn--arr"></button>
+                
+        </section>
+</div>

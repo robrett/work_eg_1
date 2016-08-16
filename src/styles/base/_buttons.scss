@@ -1,0 +1,308 @@
+//-------------------------------------
+// Buttons
+//-------------------------------------
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.btn {
+    @include media($mobile) {
+        margin-bottom: size(small);
+    }
+
+    display: inline-block;
+    min-height: 3.5rem;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    // padding: size(tiny) size(medium);
+    text-decoration: none !important;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: .75rem;
+    cursor: pointer;
+
+    &--yellow {
+        @include media($mobile) {
+            margin-bottom: size(small);
+            width: 100%;
+        }
+
+        background-color: #f8d349;
+        color: $dark
+    }
+    &--image {
+        @include display(flex);
+        @include justify-content(center);
+
+        span {
+            display: flex;
+            justify-content: center;
+        }
+        img,
+        svg {
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            max-height: 25px;
+            width: 25px;
+            text-align: center;
+        }
+        &.btn--primary {
+            * {
+                fill: white;
+            }
+        }
+    }
+    &--outline {
+        border: 2px solid;
+        border-color: inherit;
+        color: inherit;
+
+        &.btn--dark {
+            border-color: $dark;
+            background-color: transparent;
+            color: $dark;
+        }
+        &.btn--primary {
+            border-color: $primary;
+            background-color: transparent;
+            color: $dark;
+        }
+        &.btn--red {
+            border-color: $warning-red;
+            background-color: transparent;
+        }
+        &.btn--grey {
+            border-color: $dark-med-gray;
+            background-color: transparent;
+            color: $dark-med-gray;
+        }
+        &.btn--yellow {
+            border-color: $yellow;
+            background-color: transparent;
+        }
+        &.btn--white {
+            border-color: $light;
+            background-color: transparent;
+            color: $light;
+        }
+    }
+    &--transparent {
+        @include media($mobile) {
+            margin-bottom: size(small);
+            width: 100%;
+        }
+
+        float: left;
+        border: 3px solid $light;
+        background-color: transparent;
+        color: $light;
+
+        &:hover,
+        &.active {
+            background-color: $light;
+            color: $dark;
+        }
+    }
+    &--primary {
+        background-color: $primary;
+        color: $light;
+    }
+    &--grey {
+        background-color: $dark-med-gray;
+        color: $light;
+    }
+    &--narrow {
+        min-width: 180px;
+        min-height: 2.4rem;
+    }
+    &--expand {
+        width: 100%;
+        text-align: center;
+    }
+    &--stack {
+        @include media($upToDesktop) {
+            padding: 0px 30px 0 30px;
+
+            img {
+                margin-bottom: 0;
+                width: 40px;
+            }
+        }
+        @include media($mobile) {
+            padding: 0;
+
+            .img_container {
+                margin: 0 auto;
+                width: 39px;
+            }
+        }
+
+        padding: 0px $navPaddingDefault 0 $navPaddingDefault;
+        color: $light;
+
+        svg,
+        img,
+        svg {
+            float: right;
+            margin-bottom: 0;
+            width: 60px;
+            height: 30px;
+            text-align: right;
+            fill: $light;
+        }
+        &.isInverse {
+            @include media($mobile) {
+                svg,
+                img,
+                {
+                    text-align: center
+                }
+            }
+
+            svg,
+            img,
+            {
+                float: right;
+                text-align: right
+            }
+        }
+    }
+}
+
+.btn--isLoading {
+    @keyframes spinner-animate {
+        0% {
+            filter: blur(10px);
+            transform: rotate(0deg);
+        }
+        50% {
+            filter: blur(0px);
+        }
+        100% {
+            filter: blur(10px);
+            transform: rotate(360deg);
+        }
+    }
+
+    position: relative;
+    color: transparent!important;
+
+    &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $color-light;
+        background-position: center;
+        content: '';
+        transition: all ease 0.25s;
+        transform: translate(-3px, -3px);
+        transform-origin: 0% 0%;
+        animation: spinner-animate 1.5s cubic-bezier(.3, .5, .7, .5) infinite;
+        transform-style: preserve-3D;
+    }
+}
+
+.btn--text {
+    min-width: 0;
+    background: none;
+    color: $dark;
+    text-transform: none;
+
+    &.isInverse {
+        color: $light;
+    }
+    &:hover,
+    &.active {
+        text-decoration: underline;
+    }
+}
+
+.btn--checkbox {
+    padding: size(medium);
+    min-width: 80px;
+    min-height: 40px;
+    border: 1px solid $dark-med-gray;
+    background-color: transparent;
+    color: $dark;
+    font-weight: 200;
+
+    &.isActive {
+        border: 3px solid $yellow;
+        background-color: $yellow;
+    }
+}
+
+.btn--close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    align-self: center;
+    padding: 0;
+    min-height: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.35 13.35"><defs><style>.cls-1{fill:#3d3e3c;}.cls-2{fill:none;stroke:#1b1918;stroke-width:1.5px;}</style></defs><g id="group"><circle id="ellipse" class="cls-1" cx="6.67" cy="6.67" r="6.67"/><g id="group-2"><line id="line" class="cls-2" x1="4.11" y1="4.11" x2="9.24" y2="9.24"/><line id="line-2" stroke="#1b1918" class="cls-2" x1="4.11" y1="9.24" x2="9.24" y2="4.11"/></g></g></svg>');
+    background-position: center;
+    background-size: cover;
+    color: $light;
+    text-align: center;
+    text-indent: -9999px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 28px;
+    cursor: pointer;
+    transition: 0.2s all;
+
+    &:hover {
+        background-color: $primary;
+    }
+    &.btn--arrow {
+        background: none!important;
+
+        &:hover,
+        &:active {
+            background: none!important;
+        }
+        &:after {
+            @include transform(rotate(-45deg));
+
+            position: absolute;
+            left: 50%;
+            display: inline-block;
+            margin-left: -7.5px;
+            width: 15px;
+            height: 15px;
+            border-top: 3.5px solid $dark-med-gray;
+            border-right: 3.5px solid $dark-med-gray;
+            content: "";
+        }
+    }
+    &.btn--light {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMy4zNSAxMy4zNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmN2Y3Zjc7b3BhY2l0eTowLjd9LmNscy0ye2ZpbGw6bm9uZTtzdHJva2U6IzFiMTkxODtzdHJva2Utd2lkdGg6MS41cHg7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJncm91cCI+PGNpcmNsZSBpZD0iZWxsaXBzZSIgY2xhc3M9ImNscy0xIiBjeD0iNi42NyIgY3k9IjYuNjciIHI9IjYuNjciLz48ZyBpZD0iZ3JvdXAtMiI+PGxpbmUgaWQ9ImxpbmUiIGNsYXNzPSJjbHMtMiIgeDE9IjQuMTEiIHkxPSI0LjExIiB4Mj0iOS4yNCIgeTI9IjkuMjQiLz48bGluZSBpZD0ibGluZS0yIiBzdHJva2U9IiMxYjE5MTgiIGNsYXNzPSJjbHMtMiIgeDE9IjQuMTEiIHkxPSI5LjI0IiB4Mj0iOS4yNCIgeTI9IjQuMTEiLz48L2c+PC9nPjwvc3ZnPg==');
+
+        &:hover {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMy4zNSAxMy4zNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMxYjE5MTg7b3BhY2l0eToxfS5jbHMtMntmaWxsOm5vbmU7c3Ryb2tlOiNmN2Y3Zjc7c3Ryb2tlLXdpZHRoOjEuNXB4O308L3N0eWxlPjwvZGVmcz48ZyBpZD0iZ3JvdXAiPjxjaXJjbGUgaWQ9ImVsbGlwc2UiIGNsYXNzPSJjbHMtMSIgY3g9IjYuNjciIGN5PSI2LjY3IiByPSI2LjY3Ii8+PGcgaWQ9Imdyb3VwLTIiPjxsaW5lIGlkPSJsaW5lIiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iNC4xMSIgeDI9IjkuMjQiIHkyPSI5LjI0Ii8+PGxpbmUgaWQ9ImxpbmUtMiIgc3Ryb2tlPSIjZjdmN2Y3IiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iOS4yNCIgeDI9IjkuMjQiIHkyPSI0LjExIi8+PC9nPjwvZz48L3N2Zz4=');
+        }
+    }
+    &.btn--red {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMy4zNSAxMy4zNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmN2Y3Zjc7b3BhY2l0eTowLjd9LmNscy0ye2ZpbGw6bm9uZTtzdHJva2U6I2U4NDEzNjtzdHJva2Utd2lkdGg6MS41cHg7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJncm91cCI+PGNpcmNsZSBpZD0iZWxsaXBzZSIgY2xhc3M9ImNscy0xIiBjeD0iNi42NyIgY3k9IjYuNjciIHI9IjYuNjciLz48ZyBpZD0iZ3JvdXAtMiI+PGxpbmUgaWQ9ImxpbmUiIGNsYXNzPSJjbHMtMiIgeDE9IjQuMTEiIHkxPSI0LjExIiB4Mj0iOS4yNCIgeTI9IjkuMjQiLz48bGluZSBpZD0ibGluZS0yIiBzdHJva2U9IiNlODQxMzYiIGNsYXNzPSJjbHMtMiIgeDE9IjQuMTEiIHkxPSI5LjI0IiB4Mj0iOS4yNCIgeTI9IjQuMTEiLz48L2c+PC9nPjwvc3ZnPg==');
+
+        &:hover {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMy4zNSAxMy4zNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmN2Y3Zjc7b3BhY2l0eToxfS5jbHMtMntmaWxsOm5vbmU7c3Ryb2tlOiNlODQxMzY7c3Ryb2tlLXdpZHRoOjEuNXB4O308L3N0eWxlPjwvZGVmcz48ZyBpZD0iZ3JvdXAiPjxjaXJjbGUgaWQ9ImVsbGlwc2UiIGNsYXNzPSJjbHMtMSIgY3g9IjYuNjciIGN5PSI2LjY3IiByPSI2LjY3Ii8+PGcgaWQ9Imdyb3VwLTIiPjxsaW5lIGlkPSJsaW5lIiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iNC4xMSIgeDI9IjkuMjQiIHkyPSI5LjI0Ii8+PGxpbmUgaWQ9ImxpbmUtMiIgc3Ryb2tlPSIjZTg0MTM2IiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iOS4yNCIgeDI9IjkuMjQiIHkyPSI0LjExIi8+PC9nPjwvZz48L3N2Zz4=');
+        }
+    }
+    &.btn--primary {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMy4zNSAxMy4zNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmN2Y3Zjc7b3BhY2l0eTowLjd9LmNscy0ye2ZpbGw6bm9uZTtzdHJva2U6IzQ0YjQ5MTtzdHJva2Utd2lkdGg6MS41cHg7fTwvc3R5bGU+PC9kZWZzPjxnIGlkPSJncm91cCI+PGNpcmNsZSBpZD0iZWxsaXBzZSIgY2xhc3M9ImNscy0xIiBjeD0iNi42NyIgY3k9IjYuNjciIHI9IjYuNjciLz48ZyBpZD0iZ3JvdXAtMiI+PGxpbmUgaWQ9ImxpbmUiIGNsYXNzPSJjbHMtMiIgeDE9IjQuMTEiIHkxPSI0LjExIiB4Mj0iOS4yNCIgeTI9IjkuMjQiLz48bGluZSBpZD0ibGluZS0yIiBzdHJva2U9IiN7JHByaW1hcnl9IiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iOS4yNCIgeDI9IjkuMjQiIHkyPSI0LjExIi8+PC9nPjwvZz48L3N2Zz4=');
+
+        &:hover {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMy4zNSAxMy4zNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmN2Y3Zjc7b3BhY2l0eToxfS5jbHMtMntmaWxsOm5vbmU7c3Ryb2tlOiM0NGI0OTE7c3Ryb2tlLXdpZHRoOjEuNXB4O308L3N0eWxlPjwvZGVmcz48ZyBpZD0iZ3JvdXAiPjxjaXJjbGUgaWQ9ImVsbGlwc2UiIGNsYXNzPSJjbHMtMSIgY3g9IjYuNjciIGN5PSI2LjY3IiByPSI2LjY3Ii8+PGcgaWQ9Imdyb3VwLTIiPjxsaW5lIGlkPSJsaW5lIiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iNC4xMSIgeDI9IjkuMjQiIHkyPSI5LjI0Ii8+PGxpbmUgaWQ9ImxpbmUtMiIgc3Ryb2tlPSIjeyRwcmltYXJ5fSIgY2xhc3M9ImNscy0yIiB4MT0iNC4xMSIgeTE9IjkuMjQiIHgyPSI5LjI0IiB5Mj0iNC4xMSIvPjwvZz48L2c+PC9zdmc+');
+        }
+    }
+}

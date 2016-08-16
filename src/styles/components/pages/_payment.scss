@@ -1,0 +1,41 @@
+//-------------------------------------
+// Payment Page
+//-------------------------------------
+p-payment {
+    @include media($mobile){
+        padding: 1.5rem 0 0!important;
+    }
+    @include media($mobile) {
+        & > section {
+            min-height: $containerMinHeightMobile
+        }
+    }
+
+    padding-top:0!important;
+
+    .tab__link button {
+        width: 100%;
+        text-align: center;
+    }
+    form-component {
+        @include span-columns(12);
+        @include flex(1 1 100%);
+        @include media($mobile) {
+            @include span-columns(4);
+            @include flex(1 1 100%);
+        }
+
+    }
+    .fc--expiryDate,
+    .fc--ccv {
+        @include span-columns(6);
+        @include flex(1 1 50%);
+        @include media($mobile) {
+            @include span-columns(4);
+            @include flex(1 1 100%);
+        }
+    }
+    .fc--ccv {
+        @include omega();
+    }
+}

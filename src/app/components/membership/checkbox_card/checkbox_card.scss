@@ -1,0 +1,132 @@
+//-------------------------------------
+// Checkbox Cards
+//-------------------------------------
+c-checkbox-card,
+.c-checkbox-card {
+    @include display(flex);
+    @include flex-direction(column);
+    @include media($upToDesktop) {
+        float: left;
+        margin-bottom: size(medium);
+        width: 100%;
+    }
+
+    header,
+    content,
+    .cta {
+        background-color: $light;
+    }
+    &.isDisabled {
+        header {
+            background-color: $primary;
+        }
+    }
+    &.isChecked {
+        header {
+            background-color: $primary;
+        }
+        .c-checkbox-card__subheader {
+            background-color: $primary-shadow;
+        } 
+        .checkbox-card__checked {
+            background-color: $dark;
+            background-image: url($IMG_URL+'/assets/images/icons/tick.svg');
+            background-position: center center;
+            background-size: 55% 55%;
+            background-repeat: no-repeat;
+            opacity:0.3;
+            
+        }
+        button.btn {
+            background-color:$dark-med-gray;
+            color: $light;
+        }
+        
+    }
+    &__subheader {
+        position: relative;
+        z-index: 999;
+        padding: size(small) size(medium) size(small);
+        background-color: $secondary-shadow;
+        color: $light;
+
+        .btn--arrow {
+            top: 50%;
+            right: 10px;
+            transform:translateY(-35%);
+
+            &:after {
+                border-color: $light;
+                transition: 0.3s all;
+                transform:rotate(135deg);
+            }
+            &.invert:after{
+                top: 5px;
+                transform:rotate(-45deg);
+            }
+        }
+    }
+    header {
+        position: relative;
+        z-index: 999;
+        padding: size(medium) size(medium) size(medium);
+        min-height: 200px;
+        background-color: $secondary;
+        box-shadow: 0 2px 3px rgba(48, 48, 48, 0.25);
+        color: $light;
+
+        .checkbox-card__checked {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: size(medium) size(medium);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: $dark;
+            opacity:0.3;
+        }
+        h4 {
+            margin: size(medium) 0 size(small);
+        }
+        h5 {
+            margin: 0 0 size(small);
+            font-weight: 400;
+        }
+        p {
+            @include font-size(tiny, false);
+
+            margin: size(small) 0 size(small);
+
+        }
+
+        
+    }
+    &__content {
+        z-index: 99;
+    }
+    section {
+        @include flex(1 1 auto);
+        @include media(max-height 1000px) {
+            overflow-y: scroll;
+            max-height: 300px;
+        }
+        @include media(max-height 800px) {
+            overflow-y: scroll;
+            max-height: 250px;
+        }
+
+        float: left;
+        overflow-y: scroll;
+        padding: size(medium) size(medium) size(medium);
+        max-height: 350px;
+        width: 100%;
+        background-color: $light
+    }
+    button.btn {
+        margin-bottom: 0;
+        width: 100%;
+        background-color: $yellow;
+        color: $dark;
+    }
+}

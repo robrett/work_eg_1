@@ -1,0 +1,32 @@
+<div class="container ">
+    <div class="u-flex-container u-flex-grid">
+        <article class="u-flex-grid__item" *ngFor="let option of coverLevels, let ind = index" [ngClass]="{selected:option.active}">
+            <c-checkbox-card id="included_addon_checkbox-{{ind}}" (onSelect)="selectAddon($event)" [isSelected]="option.active" [isDisabled]="option.disabled"
+                [index]="ind">
+                <div header>
+                    <h3>{{option.display}}</h3>
+                    <h5 *ngIf="option.price.monthly.amount!=0 && !option.active">for only {{option.price | pricefrequency: pricingFrequency }} extra per <span *ngIf="pricingFrequency==='monthly'">month</span><span *ngIf="pricingFrequency==='annual'">year</span></h5>
+                    <p *ngIf="option.price.monthly.amount===0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium vitae provident aliquam eveniet exercitationem optio voluptas! Quia culpa quod laudantium, ut facilis.</p>
+                    <p *ngIf="option.price.monthly.amount!=0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium vitae provident aliquam eveniet exercitationem optio voluptas! </p>                    
+                </div>
+                <div subheader>
+                    <h6>Features</h6>
+                </div>
+                <m-addon-list content [data]="option.benefits"></m-addon-list>
+                <div cta>
+                    <button *ngIf="option.disabled===true" class="btn">Included</button>
+                    <button *ngIf="option.disabled===false && option.active===false"class="btn">Upgrade</button>
+                    <button *ngIf="option.disabled===false && option.active===true"class="btn">Remove From Plan</button>
+                </div>
+            </c-checkbox-card>
+        </article>
+
+    </div>
+    <article class="p-included__terms">
+        <button (onUpdate)="updateTermsBool($event)" class="btn btn--checkbox isYellow" confirmationButton>Yes</button>
+        <p>By providing the requested data, you consent to AA's Data Protection and Privacy Policy and to AA using it for administration and keeping you informed by
+mail, telephone, email and SMS of other products and services from us. By proceeding, you consent to & confirm that you have read and accepted the <a target="_blank" href="https://www.theaa.ie/AA/About-Us/Privacy-Policy.aspx">AA
+Data Protection & Privacy Policy</a> and the <a target="_blank" href="http://www.aaireland.ie/membershipterms">AA Terms & Conditions</a></p>
+    </article>
+</div>
+<c-fixed-nav class="" (onNavigate)="navigateNext($event)" [next]="page.next"  [disabled]="!hasAgreedTermsConditions"></c-fixed-nav>

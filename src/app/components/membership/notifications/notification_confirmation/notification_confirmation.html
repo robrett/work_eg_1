@@ -1,0 +1,7 @@
+<div @visibleState="isOpen" class="c-notification c-notification--confirmation c-notification--error" *ngIf="notification.type=='confirmation'">
+    <p class="c-notification__message">{{description}}</p>
+	<button *ngIf="!link" id="notificationCloseBtn" (click)="emitContinue()" class="btn btn--narrow btn--yellow">{{btnText}}</button>
+	<a *ngIf="link" href="{{link}}">
+		<button  id="notificationCloseBtn" (click)="emitContinue()" class="btn btn--narrow btn--yellow">{{btnText}}</button>
+	</a>
+</div>

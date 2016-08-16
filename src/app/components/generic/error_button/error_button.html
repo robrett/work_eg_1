@@ -1,0 +1,4 @@
+<button (click)="emitContinue()" class="btn btn--narrow btn--yellow btn--expand" [ngClass]="{isInvalid:errorMessage!==null}">
+    <span *ngIf="errorMessage!==null">{{errorMessage.message}}</span>
+    <span *ngIf="errorMessage==null">{{text}}</span>
+</button>

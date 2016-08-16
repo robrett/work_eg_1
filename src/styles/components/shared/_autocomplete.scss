@@ -1,0 +1,55 @@
+//-------------------------------------
+// Autocomplete
+//-------------------------------------
+c-auto-complete,
+.c-auto-complete {
+    position: relative;
+    float: left;
+    width: 100%;
+
+    &.isOpen{
+        min-height: 220px;
+    }
+    input {
+        z-index: -1;
+    }
+    &.ng-invalid.ng-touched input {
+        border-color: $warning-red!important;   
+    }
+    &__search {
+        position: absolute;
+        z-index: 999;
+        float: left;
+        overflow: scroll!important;
+        margin-bottom:80px;
+        max-height: 230px;
+        width: calc(100%);
+        background-color:$dark;
+    }
+    &__results button {
+        @include font-size(medium);
+
+        margin-bottom:1px;
+        padding: 0px 20px;
+        min-height: 0;
+        width: 100%;
+        height: size(huge);
+        outline: none;
+        border-bottom: 1px solid $dark-med-gray;
+        background-color: $light;
+        color: $dark;
+        text-align: left;
+        text-transform: none;
+        font-weight: 200;
+        cursor: pointer;
+
+        &:focus,
+        &:hover {
+            opacity: 0.95;
+        }
+        &:last-child {
+            border-bottom: 0px;
+            border-radius: 0px 0px 2px 2px;
+        }
+    }
+}

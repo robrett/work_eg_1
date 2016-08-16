@@ -1,0 +1,13 @@
+<section class="o-slot-container">
+    <!--<h3 class="title centered">Select Address From List</h3>-->
+    <template ngFor let-add [ngForOf]="addList">
+        <article *ngIf="add.isEcho">
+            <p>Or if you are happy the address you've entered is correct</p>
+            <hr>
+        </article>
+        <button [class.isEcho]="add.isEcho" (click)="setAddress(add)" class="o-slot">{{add.address}}</button>
+        
+    </template>
+    
+    
+</section>

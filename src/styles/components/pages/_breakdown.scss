@@ -1,0 +1,27 @@
+//-------------------------------------
+// Breakdown Page
+//-------------------------------------
+p-breakdown {
+    @include media($mobile) {
+        & > section {
+            min-height: $containerMinHeightMobile
+        }
+    }
+
+     &:before {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 105%;
+        height: 100%;
+        background-image: url($IMG_URL+'assets/images/confirmation/aa_breakdown.jpg');
+        background-position: center;
+        background-size: 102% 102%;
+        background-repeat: no-repeat;
+        content: "";
+        -webkit-filter: blur(10px);
+        filter: blur(10px);
+        transform: scale(1.05);
+    }
+}

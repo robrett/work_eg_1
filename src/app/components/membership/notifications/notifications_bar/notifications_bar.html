@@ -1,0 +1,12 @@
+<template [ngIf]="errorNotificationsArr.length > 0">
+    <c-notification (onClose)="cancelError($event)" *ngFor="let err of errorNotificationsArr " [notification]="err"></c-notification>
+</template>
+<template [ngIf]="loginNotification">
+    <c-notification-login (onClose)="cancelError($event)" [notification]="loginNotification"></c-notification-login>
+</template>
+<template [ngIf]="confirmationNotification">
+    <c-notification-confirmation (onClose)="cancelConfirmation($event)" [notification]="confirmationNotification"></c-notification-confirmation>
+</template>
+<template [ngIf]="currentNotification">
+    <c-notification (onClose)="consumeNotification()" [notification]="currentNotification"></c-notification>
+</template>

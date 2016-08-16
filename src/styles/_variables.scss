@@ -1,0 +1,115 @@
+// Grays
+$light-gray: #e1e3e1;
+$light-med-gray: #c7c8c7;
+$dark-med-gray: #9a9c9a;
+$dark-gray: #3d3e3c;
+
+// Main
+$primary: #44b491;
+$primary-shadow: #009a77;
+$secondary: #ec6355;
+$secondary-shadow:#c04a3c;
+$tertiary: #eb7e15;
+$tertiary-shadow: #dc6a20;
+
+// Warnings
+$warning-yellow: #ffe602;
+$warning-red:#e84136;
+$warning-orange:#f29922;
+
+// Brand
+$yellow: #f8d349;
+$dark: #1b1918;
+$light: #f7f7f7;
+
+
+// Borders;
+$defaultBorder: 4px solid $light;
+$ghostBorder: 4px dashed $dark-med-gray;
+$validBorder: 4px solid $primary;
+
+// Nav
+$navHeightDefault: 70px;
+$navHeightMobile: 50px;
+$navPaddingDefault: 40px;
+$navPaddingMobile: 15px;
+
+// Fixed Nav / footer
+$fixedNavHeight: 70px;
+$fixedNavHeightTablet: 90px;
+$fixedNavHeightMobile: 60px;
+
+
+// Default Margins
+$defaultSpacing: modular-scale(0);
+$halfSpacing: modular-scale(-1);
+$quarterSpacing: modular-scale(-2);
+
+// z-index
+$routerOutlet: 9;
+$topNavZ: 999;
+$notificationsBarZ: 998;
+$overViewZ: 9999;
+$fixedNavZ:999;
+$popupZ: 99999;
+
+// Buttons
+$buttonPaddingDefault: 10px;
+
+// Inputs
+$inputsMarginDefault: 2px;
+
+// Containers
+$defaultContainerPadding: size(big);
+$defaultContainerPaddingMobile: size(medium);
+$fixedNavContainerMobile: 60px;
+
+$fixedNavSpacerDesktop: 140px;
+$fixedNavSpacerTablet: 140px;
+$fixedNavSpacerMobile: 50px;
+$fixedNavSize: $fixedNavContainerMobile + $fixedNavSpacerMobile;
+$containerMinHeightMobile: calc(100vh - #{$navHeightMobile} - #{$fixedNavSize} - #{$defaultContainerPaddingMobile});
+$containerMinHeight: calc(100vh - #{$navHeightDefault} - #{$fixedNavHeight});
+
+// Transitions
+$transition-curve: cubic-bezier(.5,0,.5,1);
+$transition-short: all cubic-bezier(.5,0,.5,1) 0.25s;
+$transition-long: all cubic-bezier(.5,0,.5,1) 0.7s;
+
+$IMG_URL: "http://uat1-travel-insurance.theaa.local/membership3/";
+
+
+//-------------------------------------
+// #SETTINGS-TYPOGRAPHY
+//-------------------------------------
+
+$font-family : (
+  "sans"    : (Helvetica, "Helvetica Neue", Arial, sans-serif),
+  "serif"   : (Georgia, "Times New Roman", Times, serif),
+  "mono"    : (Inconsolata, "Courier New", Courier, monospace),
+  "primary" : ("Open Sans", sans-serif),
+  "heading" : ("Open Sans", sans-serif)
+) !default;
+
+$font-size : (
+  "mini"    : 8px,	// 0.5rem
+  "tiny"    : 12px, // 0.75rem
+  "small"   : 14px, // 0.875rem
+  "regular" : 16px, // 1rem
+  "medium"  : 18px, // 1.125rem
+  "large"   : 24px, // 1.5rem
+  "huge"    : 32px, // 2 rem
+  "big"     : 36px,
+  "giant"   : 48px,
+  "ogro"    : 56px,
+  "monster" : 60px,
+  "god"     : 72px
+) !default;
+
+$font-weight : (
+  "thin"   : 100,
+  "light"  : 300,
+  "medium" : 400,
+  "bold"   : 600,
+  "bolder" : 800
+) !default;

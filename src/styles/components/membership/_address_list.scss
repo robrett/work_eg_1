@@ -1,0 +1,32 @@
+//-------------------------------------
+// Address List Slots
+//-------------------------------------
+m-address-list {
+    position: relative;
+    display: none;
+    float: left;
+    width: 100%;
+
+    &.isVisible {
+        display: block;
+    }
+    .o-slot {
+        opacity: 0;
+    }
+    article{
+        margin-bottom: size(medium);
+
+        hr {
+            height: 3px;
+            border: none;
+            background-color:$dark-med-gray;
+        }
+    }
+    .o-slot-container .title {
+        @include media($mobile) {
+            margin: size(medium) 0 size(large) 0;
+        }
+
+        margin: size(large) 0 size(huge) 0
+    }
+}

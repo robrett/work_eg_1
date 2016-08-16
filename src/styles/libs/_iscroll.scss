@@ -1,0 +1,19 @@
+.iscroll {
+    width: 100%;
+     min-height: 70px;
+     position: relative;
+     overflow: hidden;
+}
+
+.iscroll-wrapper {
+    width: calc(100%);
+    position: absolute;
+    min-height: 70px;
+}
+
+.iScrollHorizontalScrollbar {
+    z-index: 99!important;
+    .iScrollIndicator {
+        background: $light!important;
+    }   
+}

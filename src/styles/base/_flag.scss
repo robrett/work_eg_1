@@ -1,0 +1,44 @@
+//-------------------------------------
+// Flag
+//-------------------------------------
+.o-flag {
+    display: table;
+    width: 100%
+}
+
+.o-flag__image,
+.o-flag__body {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.o-flag--top .o-flag__image,
+.o-flag--top .o-flag__body {
+    vertical-align: top
+}
+
+.o-flag--bottom .o-flag__image,
+.o-flag--bottom .o-flag__body {
+    vertical-align: bottom
+}
+
+.o-flag__image {
+    padding-right: size(medium);
+    padding-left: size(medium);
+}
+
+.o-flag__image>img {
+    display: block;
+    max-width: none;
+}
+
+.o-flag--rev .o-flag__image {
+    padding-right: 0;
+    padding-left: size(medium)
+}
+
+.o-flag__body {
+    margin-left: size(medium);
+    padding-right: size(medium);
+    width: 100%;
+}

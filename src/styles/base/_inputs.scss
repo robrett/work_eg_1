@@ -1,0 +1,100 @@
+//-------------------------------------
+// Form
+//-------------------------------------
+form {
+    float: left;
+    margin-bottom: size(small);
+    width: 100%;
+}
+
+form-group {
+    @include flex(1 1);
+    @include display(flex);
+    @include flex-flow(row nowrap);
+    @include justify-content(space-between);
+
+    position: relative;
+    min-width: 200px;
+}
+
+label {
+    @include font-size(tiny);
+
+    color: $light;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+//-------------------------------------
+// Inputs
+//-------------------------------------
+
+input {
+    @include font-size(regular);
+
+    min-height: 2.5rem;
+    width: 100%;
+    width: calc(100% - 48px);
+
+    &::-ms-clear {
+        display: none;
+    }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="autocomplete"],
+input[type="tel"] {
+    min-width: 200px;
+    width: 100%;
+}
+
+button[class="rset"] {
+    position: absolute;
+    right: 0;
+    max-width: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    outline: none;
+    border: none;
+    background: rgba(0, 0, 0, 0);
+    background-position: center center;
+    text-indent: -99999999px;
+    cursor: pointer;
+    transition: $transition-short;
+    pointer-events: none;
+
+    & ~ input {
+        padding-right: 2.5rem;
+    }
+}
+
+input:focus ~ button[class="rset"],
+.isFocused ~ button[class="rset"] {
+    border-color: $light;
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    background-color: $dark!important;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #1b1918 inset !important;
+}
+
+c-email-input {
+    float: left;
+    width: 100%;
+}
+
+input:invalid {
+    box-shadow: none;
+}

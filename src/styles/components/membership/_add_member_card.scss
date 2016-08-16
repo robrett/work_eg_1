@@ -1,0 +1,177 @@
+//-------------------------------------
+// Add Member Card
+//-------------------------------------
+m-add-member-card {
+    @include media($mobile){
+        height: 14rem;
+    }
+
+    height: 14rem;
+    border: $defaultBorder;
+    border-radius: 2px;
+
+    &.isPlaceholder {
+        border: $ghostBorder;
+        color: $dark-med-gray;
+        cursor: pointer;
+        transition: $transition-short;
+
+        &:hover { background-color: darken($dark, 2%); }
+        & .o-flag__image img,
+        & .o-flag__image svg * {
+            fill: $dark-med-gray;
+        }
+    }
+    &.isValid {
+        border: $validBorder;
+
+        & .o-flag__image img,
+        & .o-flag__image svg * {
+            fill: $primary;
+        }
+    }
+
+    &.isEditing {
+        .c-add_member_close {
+            border-color: $light;
+
+            &:hover {
+                background-color: $light;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'> <line stroke='#272822' stroke-width='5' x1='16' y1='16' x2='33' y2='33' /> <line stroke='#272822' stroke-width='5' x1='33' y1='16' x2='16' y2='33' /> </svg>");
+                color: $dark;
+            }
+        }
+        .o-flag__image {  max-width: 0; }
+    }
+    .o-flag {
+        width: 100%;
+        height: 100%;
+    }
+    .o-flag__image {
+        max-width: 0;
+        width: 45%;
+        
+    }
+    .o-flag__image img,
+    .o-flag__image svg * {
+        fill: white;
+        
+    }
+    .o-flag__image img,
+    .o-flag__image svg {
+        display: none;
+
+        &.active {
+            display:block;
+        }
+    }
+    .o-flag__body {
+        @include type-setting(2);
+
+        position: relative;
+        text-align: center;
+        font-weight: 200;
+    }
+    .o-flag__body h5 {
+        color: $light;
+        font-weight: 200;
+    }
+    .o-flag__body h4 {
+        @include media($mobile){
+            margin-bottom: size(tiny);
+        }
+
+        margin-bottom: size(medium);
+        color: $light;
+        font-weight: 200
+    }
+    .c-add_member_close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        align-self: center;
+        padding: 0;
+        width: 28px;
+        height: 28px;
+        border: 2px solid $primary;
+        border-radius: 50%;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'> <line stroke='#ffffff' stroke-width='5' x1='16' y1='16' x2='33' y2='33' /> <line stroke='#ffffff' stroke-width='5' x1='33' y1='16' x2='16' y2='33' /> </svg>");
+        background-position: center;
+        background-size: cover;
+        color: $light;
+        text-align: center;
+        text-indent: -9999px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 28px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primary;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'> <line stroke='#272822' stroke-width='5' x1='16' y1='16' x2='33' y2='33' /> <line stroke='#272822' stroke-width='5' x1='33' y1='16' x2='16' y2='33' /> </svg>");
+        }
+    }
+    .c-add_member_button, c-error-button .btn {
+        @include font-size(small);
+
+        margin-top: size(medium);
+        min-height: size(large);
+        width: 100%;
+        background-color: $yellow;
+    }
+    form + .c-add_member_button , c-error-button .btn {
+        margin: 0;
+    }
+    c-error-button .btn {
+        @include font-size(tiny, false);
+
+        &.isInvalid {
+            border: 2px solid $warning-red;
+            background: transparent;
+            color: $warning-red;
+        }
+    }
+    form {
+        form-group {
+            float: left;
+            margin: 0;
+            padding: 0;
+            min-width: 0;
+            width: 100%;
+            text-align: left;
+
+            input {
+                @include font-size(small);
+
+                min-width: 0!important;
+                min-height: 35px;
+                width: 100%;
+
+            }
+            button[class="rset"] {
+                display:none;
+            }
+        }
+    }
+    label {
+        @include type-setting(0);
+
+        float: left;
+    }
+    .fc--firstName {
+        @include span-columns(6);
+
+        margin-bottom: size(small);
+
+    }
+    .fc--surname {
+        @include span-columns(6);
+        @include omega();
+
+        margin-bottom: size(small);
+
+    }
+    .fc--dateOfBirth {
+        flex-grow: 1;
+    }
+}

@@ -1,0 +1,10 @@
+<div class="o-cc_form">
+    <h4 *ngIf="quote && frequency==='monthly'">Your first monthly payment will be <span>{{quote.total.monthly.deposit.pretty}}</span>. The following {{quote.total.monthly.instalment.number}} monthly payments will be <span>{{quote.total.monthly.instalment.charge.pretty}}</span>.</h4>
+    <h3 class="centered title">Please enter your card details.</h3>
+    <div *ngIf="errorMessageVisible" class="o-slot--warning"><h6>Sorry, there was a problem processing your payment, please try again.</h6></div>
+    <!--<iframe *ngIf="iframeVisible" [style.height]="iframeHeight" src="http://developie.theaa.local/realex-uat/card.html"></iframe>-->
+    <!--<iframe *ngIf="iframeVisible" [style.height]="iframeHeight" src="http://www.theaa.ie/test/realex/dkt929323/MembershipRealex/payment/request"></iframe>-->
+
+     <iframe *ngIf="iframeVisible" [style.height]="iframeHeight" src="http://www.theaa.ie/test/realex/dkt929323/MembershipRealexUAT/payment/request"></iframe>
+     <button *ngIf="frequency==='annual'" (click)="swapPaymentType()" class="btn btn--outline btn--expand">Or Pay By Bank</button>
+</div>

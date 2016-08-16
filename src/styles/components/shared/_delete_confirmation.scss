@@ -1,0 +1,56 @@
+//-------------------------------------
+// Delete Confirmation
+//-------------------------------------
+c-delete-confirmation,
+.c-delete-confirmation {
+	&.isOpen{
+		position: absolute;
+		width: 100%;
+	}
+	&__remove-item {
+		@include flex(0 0 40px);
+
+		width: 40px;
+		height: 40px;
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMy4zNSAxMy4zNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiMzZDNlM2M7fS5jbHMtMntmaWxsOm5vbmU7c3Ryb2tlOiMxYjE5MTg7c3Ryb2tlLXdpZHRoOjEuNXB4O308L3N0eWxlPjwvZGVmcz48ZyBpZD0iZ3JvdXAiPjxjaXJjbGUgaWQ9ImVsbGlwc2UiIGNsYXNzPSJjbHMtMSIgY3g9IjYuNjciIGN5PSI2LjY3IiByPSI2LjY3Ii8+PGcgaWQ9Imdyb3VwLTIiPjxsaW5lIGlkPSJsaW5lIiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iNC4xMSIgeDI9IjkuMjQiIHkyPSI5LjI0Ii8+PGxpbmUgaWQ9ImxpbmUtMiIgc3Ryb2tlPSIjMWIxOTE4IiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iOS4yNCIgeDI9IjkuMjQiIHkyPSI0LjExIi8+PC9nPjwvZz48L3N2Zz4=');
+		background-position: center;
+		background-size: 50% 50%;
+		background-repeat: no-repeat;
+		transition: 0.3s all;
+
+		&:hover, &:active {
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMy4zNSAxMy4zNSI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmN2Y3Zjc7b3BhY2l0eToxfS5jbHMtMntmaWxsOm5vbmU7c3Ryb2tlOiMxYjE5MTg7c3Ryb2tlLXdpZHRoOjEuNXB4O308L3N0eWxlPjwvZGVmcz48ZyBpZD0iZ3JvdXAiPjxjaXJjbGUgaWQ9ImVsbGlwc2UiIGNsYXNzPSJjbHMtMSIgY3g9IjYuNjciIGN5PSI2LjY3IiByPSI2LjY3Ii8+PGcgaWQ9Imdyb3VwLTIiPjxsaW5lIGlkPSJsaW5lIiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iNC4xMSIgeDI9IjkuMjQiIHkyPSI5LjI0Ii8+PGxpbmUgaWQ9ImxpbmUtMiIgc3Ryb2tlPSIjMWIxOTE4IiBjbGFzcz0iY2xzLTIiIHgxPSI0LjExIiB5MT0iOS4yNCIgeDI9IjkuMjQiIHkyPSI0LjExIi8+PC9nPjwvZz48L3N2Zz4='); 
+        	
+		}
+	}
+	&__group {
+		@include display(flex);
+    	@include flex-direction(row);
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 44px;
+		transform: translateX(100%);
+
+		.btn, p {
+			@include flex(1 1 auto)
+		}
+		.btn {
+			min-height: 44px;
+			background-color:$secondary;
+
+			&:last-child{
+				background-color:$secondary-shadow;
+			}
+		}
+		p {
+			margin:0;
+			padding: 0 size(small);
+			background-color:$dark;
+			color: $light;
+			line-height: 44px;
+		}
+	}
+}

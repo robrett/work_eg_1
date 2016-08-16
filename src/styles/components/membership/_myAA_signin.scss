@@ -1,0 +1,52 @@
+//-------------------------------------
+// MyAA Signin Dropdown
+//-------------------------------------
+m-save-quote-signin,
+.m-save-quote-signin {
+	position: absolute;
+	float: left;
+	width: 100%;
+	background-color: $dark;
+
+	a {
+		color: $light;
+	}
+	section {
+		@include display(flex);
+		@include flex-direction(column);
+
+		justify-content: flex-end;
+		float: left;
+		padding: 24px; 
+		width: 100%;
+		height: 100%;
+
+	}
+	&__login-form {
+		@include display(flex);
+		@include flex-direction(column);
+		@include media($mobile) {
+			padding-top: size(small);
+			min-height: 0;
+		}
+
+		flex: 0 1 auto;
+		justify-content: flex-end
+	}
+	&__button-group {
+		display: flex;
+		flex: 0 1 auto;
+		flex-direction: row;
+		float: left;
+		margin-bottom: size(medium);
+		width: 100%;
+
+		button {
+			@include flex(1 1 auto);
+			@include span-columns(6);
+			@include media($mobile){
+				@include span-columns(4);
+			}
+		}
+	}
+}

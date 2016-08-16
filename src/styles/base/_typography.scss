@@ -1,0 +1,131 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
+.title {
+    @include media($mobile) {
+        @include font-size(regular);
+
+        margin-bottom: size(medium);
+        padding: 0; 
+        font-weight: 600;
+    }
+
+    margin-bottom: size(medium);
+    color: $light;
+    font-weight: 400;
+
+    & + p {
+        margin: size(medium) 0!important;
+    }
+}
+
+// &.centered {
+//     text-align: center;
+// }
+
+// .large {
+//     font-size: modular-scale(6);
+//     line-height: $baseLineHeight * 2;
+// }
+
+//-------------------------------------
+// #ELEMENTS-TYPOGRAPHY
+//-------------------------------------
+
+body {
+  @include font-family(sans);
+  @include font-weight(medium);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font-family(primary);
+  @include font-weight(bold);
+
+  margin: 0;
+  color: inherit;
+}
+
+
+h1 { @include font-size(giant); }
+h2 { @include font-size(big); }
+h3 { @include font-size(huge); }
+h4 { 
+  @include font-size(large);
+
+  line-height: 1.333;
+ }
+h5 { @include font-size(medium); }
+h6 { @include font-size(regular); }
+
+
+blockquote {
+  @include font-family(serif);
+
+  position: relative;
+  padding-top: size(medium);
+  padding-right: size(large);
+  padding-left: size(large);
+  font-style: italic;
+
+  &:before,
+  &:after {
+    @include sizing(48px);
+
+    font-size: rem(96px);
+    line-height: 1;
+    opacity: .3;
+  }
+  &:before {
+    @include absolute(top 0 left 0);
+
+    content: "“";
+  }
+  &:after {
+    @include absolute(top 0 right 0);
+
+    content: "”";
+  }
+  & > p { @include font-size(large, false); }
+  & > span {
+    @include font-family(primary);
+    @include font-size(regular);
+    @include font-weight(bold);
+
+    position: relative;
+    display: block;
+    margin-top: size(medium);
+    padding-top: size(medium);
+    font-style: normal;
+
+    &:before {
+      @include absolute(top 0 left 0);
+
+      width: rem(24px);
+      border-bottom: 3px solid;
+      content: "";
+    }
+  }
+}
+
+
+p {
+  @include font-size(regular);
+
+ // margin: size(medium) 0;
+//   &:first-of-type { margin-top: 0; }
+//   &:last-of-type { margin-bottom: 0; }
+}
+
+
+
+a {
+  color: palette(primary);
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}

@@ -1,0 +1,19 @@
+<section class="pu-container">
+    <div class="loading"></div>
+    <h4 class="centered">Getting you a price breakdown</h4>
+    <div class="o-testimonial">
+        <div class="o-testimonial__image">
+            <img src="http://uat1-travel-insurance.theaa.local/membership3/assets/images/testimonials/default.jpg" alt="">
+        </div>
+        <div class="o-testimonial__quote">
+            <h3 *ngIf="!outcome"><i>Huge thanks to Dave the @TheAAie man who fixed my wiper motor in the lashings of rain at J13 M8 last night- a nicer hero you will never meet</i></h3>
+            <h3 *ngIf="outcome"><i>{{outcome.details.description}}</i></h3>
+        </div>
+        <div class="o-testimonial__subscript">
+            <p *ngIf="!outcome">Simon, Rathfarnham
+                <br> AA Member</p>
+                <p *ngIf="outcome">{{outcome.details.author}}
+                <br> AA Member</p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,65 @@
+<div class="container">
+    <section id="topContainer">
+        <h2>Thanks {{primaryUser.firstName}}</h2>
+        <h2>You're now an AA Member</h2>
+        <h4 *ngIf="members.length === 0"><i>You will receive a confirmation email shortly and your Membership card's will follow in the post</i></h4>
+        <h4 *ngIf="members.length > 0"><i>You will receive a confirmation email shortly and your Membership card will follow in the post</i></h4>
+        <hr>
+        <h4><strong>Your AA Membership number</strong></h4>
+        <button class="btn btn--outline"><h4>{{primaryUser.membershipNumber}}</h4></button>
+    </section>
+</div>
+<div class="outer-container" id="p-confirmation__mid_container">
+    <div id="midContainer" class="container inverse">
+        <section>
+            <h4 class="">Membership Details</h4>
+            <ul class="o-list o-list--double">
+                <li>Payment Ref:<span>{{convertedQuote.reference}}</span></li>
+                <li>Membership Active From<span>{{convertedQuote.dateStart}}</span></li>
+                <li>Membership No.<span *ngIf="members">{{primaryUser.membershipNumber}}</span></li>
+            </ul>
+            <h4 *ngIf="members.length === 1">Additional Member</h4>
+            <h4 *ngIf="members.length > 1">Additional Members</h4>
+            <ul class="o-list o-list--double">
+                <li *ngFor="let member of members">{{member.firstName}}<span *ngIf="member.membershipNumber">{{member.membershipNumber}}</span></li>
+            </ul>
+        </section>
+        
+        <section>
+            <h4 class="">Any Questions?</h4>
+            <c-accordian>
+                <c-accordian-panel>
+                    <header>What do I do if I breakdown?</header>
+                    <content>You can request an AA Patrol through the AA App or call 1800667788.</content>
+                </c-accordian-panel>
+                <c-accordian-panel>
+                    <header>When will my AA Membership activate?</header>
+                    <content>AA Roadside Rescue activates in 24 hours.<br>Home Start activates in 24 hours.<br>Rescue Plus activates in 48 hours.</content>
+                </c-accordian-panel>
+                <c-accordian-panel>
+                    <header>Does AA Membership cover me in any vehicle?</header>
+                    <content>AA Membership covers you in any car, even if you're a passenger.</content>
+                </c-accordian-panel>
+                <c-accordian-panel>
+                    <header>When will I receive my AA Membership card?</header>
+                    <content>You should receive your AA Membership card and windscreen sticker in the post in the next two weeks. You can download the AA App to receive a virtual Membership card too.</content>
+                </c-accordian-panel>
+            </c-accordian>
+        </section>
+
+    </div>
+</div>
+
+<div id="banner" class="outer-container" style="background-image:url('http://uat1-travel-insurance.theaa.local/membership3/assets/images/confirmation/skiBackground.jpg')">
+    <div class="container">
+        <section>
+            <h1>AA Annual Travel Insurance</h1>
+            <div class="content">
+                <h2>From as little as</h2>
+                <h1 class="large">€25.49</h1>
+            </div>
+            <button class="btn btn--yellow">Get a Quote</button>
+            
+        </section>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+//-------------------------------------
+// Cover Level Addon Lists
+//-------------------------------------
+m-addon-list,
+.m-addon-list {
+    @include media($upToDesktop){
+         min-height: 100px;
+    }
+    @include media($mobile) {
+        min-height: 130px;
+    }
+    @include type-setting(0);
+
+    position: relative;
+    float: left;
+    width: 100%;
+
+    &__wrapper {
+        @include media($upToDesktop) {
+            position: absolute;
+            overflow: hidden;
+            width: 100%;
+            height: 100px;
+        }
+        @include media($mobile) {
+            height: 150px;
+        }
+    }
+    &__scroller {
+        @include media($upToDesktop) {
+            position: absolute;
+            width: 15000px
+        }
+    }
+    h4 {
+        font-weight: 400;
+    }
+    &__benefits {
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+        width: 100%;
+    }
+    &__benefits li {
+        @include media($upToDesktop) {
+            @include font-size(small, false);
+
+            padding: 0;
+            text-align: center;
+        }
+
+        position: relative;
+        position: relative;
+        display: block;
+        float: left;
+        overflow: visible;
+        margin: size(tiny) 0 size(small);
+        padding: 0;
+        padding-left: calc(45px + #{size(medium)});
+        min-height: 30px;
+        color:$dark;
+        list-style: none;
+
+        strong {
+            display: block;
+            margin-bottom: size(mini);
+        }
+        p {
+            @include font-size(tiny, false);
+
+            margin: 0;
+        }
+    }
+    &__benefits li img {
+        @include media($upToDesktop) {
+            position: relative;
+            display: block;
+            margin: 0 auto size(small);
+        }
+
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 40px;
+        height: 40px
+    }
+    &__next,
+    &__prev {
+        @include media($upToDesktop) {
+            display: block;
+        }
+
+        position: absolute;
+        top: 40%;
+        z-index: 99;
+        display: none;
+        width: 0;
+        height: 0;
+        border-top: 7.5px solid transparent;
+        border-bottom: 7.5px solid transparent;
+        opacity: 0.35;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+    &__next {
+        right: -#{size(medium)};
+        border-left: 15px solid white;
+    }
+    &__prev {
+        left: -#{size(medium)};
+        border-right: 15px solid white;
+    }
+}

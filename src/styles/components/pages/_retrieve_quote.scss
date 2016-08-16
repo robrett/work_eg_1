@@ -1,0 +1,39 @@
+//-------------------------------------
+// Retrieve Quote Page
+//-------------------------------------
+p-retrieve-quote {
+	@include media($mobile){
+        padding: 1.5rem 0 0!important;
+    }
+
+	padding-top:0!important;
+
+	 &:before {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 105%;
+        height: 100%;
+        background-image: url($IMG_URL+'assets/images/confirmation/aa_breakdown.jpg');
+        background-position: center;
+        background-size: 102% 102%;
+        background-repeat: no-repeat;
+        content: "";
+        -webkit-filter: blur(10px);
+        filter: blur(10px);
+        transform: scale(1.05);
+    }
+	.o-card__content {
+		color: $dark;
+
+		h4 {
+			margin-bottom: size(small);
+			padding-top: size(medium);
+			font-weight: 800;
+		}
+		p {
+			font-weight: 200;
+		}
+	}
+}

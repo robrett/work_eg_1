@@ -1,0 +1,15 @@
+<div (click)="prev($event)" class="m-addon-list__prev"></div>
+<div (click)="next($event)" class="m-addon-list__next"></div>
+<article>
+    <div class="m-addon-list__wrapper">
+        <div class="m-addon-list__scroller">
+            <ul class="m-addon-list__benefits">
+                <li *ngFor="let item of data | benefitsFilter">
+                    <img src="{{item.icon}}" alt="">
+                    <strong>{{item.name}}</strong>
+                    <p>Sunt commodi quas accusantium, aspernatur adipisci numquam quam consequuntua au.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</article>

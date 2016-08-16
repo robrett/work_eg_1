@@ -1,0 +1,32 @@
+//-------------------------------------
+// Selector
+//-------------------------------------
+c-selector {
+    @include flex(1 1 auto);
+
+    cursor: pointer;
+}
+
+.c-selector--outline {
+    @include display(flex);
+    @include flex-flow(row wrap);
+    @include justify-content(center);
+    @include align-items(center);
+
+    z-index: 9;
+    margin: 0 size(tiny) 0;
+    border: 3px solid $light;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &.isSelected {
+        outline: none;
+        border-color: $primary;
+    }
+    &:first-child {
+        margin-left: 0;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}

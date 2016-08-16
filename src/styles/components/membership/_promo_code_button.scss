@@ -1,0 +1,48 @@
+//-------------------------------------
+// Promo Code Button
+//-------------------------------------
+button[m-promo-code] {
+    @include media($mobile) {
+        min-width: 100%;
+    }
+
+    position: relative;
+    overflow: hidden;
+    width: 70px;
+    border: 1px solid $light;
+    background-color: $dark;
+    color: $light;
+
+    &:hover {
+        border: 1px solid $dark;
+        background-color: $light;
+        color: $dark;
+    }
+    &.isOpen {
+        padding: 0px 15px !important;
+        background-color: $dark;
+        color: $light;
+        text-transform: none;
+
+        &:hover {
+            background-color: $dark;
+            color: $light;
+        }
+    }
+    span {
+        display: inline-block;
+    }
+    input {
+        @include font-size(small);
+
+        display: none;
+        height: 40px;
+    }
+    .validatingStatus {
+        position: absolute;
+        bottom: 9px;
+        width: 0px;
+        height: 4px;
+        background-color: $primary;
+    }
+}

@@ -1,0 +1,48 @@
+//-------------------------------------
+// Include Page
+//-------------------------------------
+$gutterNum: strip-units(flex-gutter());
+p-included,
+.p-included {
+    float: left;
+    min-height: inherit;
+
+    .u-flex {
+        @include align-items(flex-start);
+        @include justify-content(space-between);
+
+        &-grid__item{
+            @include flex-basis(0);
+        }
+    }
+    c-checkbox-card {
+        height: 100%;
+    }   
+    &__terms {
+        @include display(flex);
+        @include media($mobile){
+            flex-direction: column-reverse;
+            margin: size(tiny) 0 size(large); 
+        }
+
+        align-content: center;
+        margin-top: size(medium);
+
+        button {
+            @include media($mobile){
+                margin: 0;
+            }
+
+            float: left;
+            margin-right: size(medium);
+            margin-left: 1.17883%;
+            color: white
+        }
+        p {
+            @include font-size(tiny);
+
+            margin-right:1.17883%;
+            color: $light-med-gray;
+        }
+    }
+}

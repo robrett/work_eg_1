@@ -1,0 +1,8 @@
+<form [formGroup]="form" action="" class="">
+    <form-component 
+        *ngFor="let field of fields" 
+        class="c-form-component--default" 
+        [form]="form"
+        [field]="field">
+    </form-component>
+</form>

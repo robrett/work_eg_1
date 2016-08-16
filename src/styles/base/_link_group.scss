@@ -1,0 +1,20 @@
+//-------------------------------------
+// Link Group
+//-------------------------------------
+.o-link_group{
+    @include span-columns(3);
+    @include pad(0 $navPaddingMobile);
+    @include media($upToDesktop) {
+        @include span-columns(6);
+        @include shift(1);
+    }
+    @include media($mobile) {
+        @include span-columns(4);
+        @include shift(0);
+    }
+       
+    
+}
+.o-links{
+    margin-top : modular-scale(2);
+}

@@ -1,0 +1,47 @@
+//-------------------------------------
+// Flex Utils
+//-------------------------------------
+.u-flex{
+    flex: 1 1 auto;
+}
+
+.u-flex-container{
+    @include display(flex);
+}
+
+.u-flex-row {
+    @include flex-direction(row);
+}
+
+.u-flex-column {
+    @include flex-direction(column);
+}
+
+.u-flex-grid {
+    @include flex-direction(row);
+    @include media($upToDesktop){
+        @include flex-direction(column);
+
+        &.reverse {
+            @include flex-direction(column-reverse);
+        }
+    }
+
+    &.reverse {
+        @include flex-direction(row-reverse);
+    }
+}
+.u-flex-grid__item {
+    @include flex-flow(column nowrap);
+    @include justify-content(space-between);
+    @include align-items(center);
+    @include align-content(center);
+    @include flex(1 1 auto);
+    @include media($mobile){
+        padding:0;
+    }
+
+    padding-right: flex-gutter() / 2;
+    padding-left: flex-gutter() / 2
+    
+}

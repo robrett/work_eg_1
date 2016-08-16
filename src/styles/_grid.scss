@@ -1,0 +1,27 @@
+@import "../../node_modules/bourbon/app/assets/stylesheets/_bourbon";
+@import "../../node_modules/bourbon-neat/app/assets/stylesheets/_neat.scss";
+
+$modular-scale-ratio: $perfect-fourth;
+$modular-scale-base: rem(12);
+$baseLineHeight: $modular-scale-base * 1.25;
+
+@import "../../node_modules/bourbon-neat/app/assets/stylesheets/_neat-helpers.scss";
+// Change the grid settings 
+$column: modular-scale(3, 1em, $perfect-fourth) !default;
+$gutter: modular-scale(1, 1em, $perfect-fourth) !default;
+$grid-columns: 12 !default;
+$max-width: em(1600) !default;
+// Define your breakpoints
+
+$lg-desktop: new-breakpoint(min-width 1601px 12);
+$desktop: new-breakpoint(min-width 1024px max-width 1600px, 12);
+$desktopUp: new-breakpoint(min-width 1024px 12);
+$upToDesktop: new-breakpoint(max-width 1023px 8);
+$tablet: new-breakpoint(min-width 768px max-width 1024px 8);
+$tabletPortrait: new-breakpoint(min-width 481px max-width 768px 8);
+$smallTablet: new-breakpoint(min-width 481px max-width 600px 8);
+$mobile: new-breakpoint(max-width 480px 4);
+
+
+
+

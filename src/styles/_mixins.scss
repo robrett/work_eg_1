@@ -1,0 +1,79 @@
+@function strip-units($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+
+@mixin baseline-grid( $line-height:24 ) {
+
+    position: relative;
+
+    &:after {
+        position: absolute;
+        width: auto;
+        height: auto;
+        z-index: 9999;
+        content: '';
+        display: block;
+        pointer-events: none;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url(http://basehold.it/image.php?height=#{$line-height}) repeat top left;
+    }
+
+    &:active:after {
+        display: none;
+    }
+
+}
+
+
+$line-height: (
+  -2: $baseLineHeight,
+  -1: $baseLineHeight,
+  0: $baseLineHeight,
+  1: $baseLineHeight * 1.5,
+  2: $baseLineHeight * 2,
+  3: $baseLineHeight * 3.5,
+  4: $baseLineHeight * 3,
+  5: $baseLineHeight * 2
+);
+
+
+
+$type-scale: (
+  -2:modular-scale(-2),
+  -1:modular-scale(-1),
+  0:modular-scale(0),
+  1:modular-scale(1),
+  2:modular-scale(2),
+  3: modular-scale(3),
+  4: modular-scale(4),
+   5: modular-scale(5)
+);
+
+@function line-height($level) {
+  @return map-get($line-height, $level);
+}
+
+@function type-scale($level) {
+  @return map-get($type-scale, $level);
+}
+
+@mixin type-setting($level: 0) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+@mixin paddingBottom($scale, $modifier: 1) {
+    padding-bottom: line-height($scale) * $modifier;
+}
+
+@mixin marginBottom($scale, $modifier: 1) {
+    margin-bottom: $baseLineHeight * $modifier;
+}
+
+@function default-spacing($modifier: 1) {
+    @return $baseLineHeight * $modifier;
+}

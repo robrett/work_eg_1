@@ -1,0 +1,5 @@
+<div [class.isInvisible]="!prev" (click)="triggerBack()" class="c-top_nav__back">
+    <img src="http://uat1-travel-insurance.theaa.local/membership3/assets/images/icons/backArrow.svg" alt="Back Arrow">
+</div>
+<header class="c-top_nav__header"><h3>{{header}}</h3></header>
+<div *ngIf="isPriceVisible" (click)="toggleDropdown()" class="c-top_nav__price"><h3>{{price.pretty }}</h3></div>

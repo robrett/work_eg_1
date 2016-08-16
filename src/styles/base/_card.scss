@@ -1,0 +1,60 @@
+//-------------------------------------
+// Cards
+//-------------------------------------
+.o-card {
+    position: relative;
+
+    .o-card__title {}
+    .o-card__content {}
+    .o-card__actions {}
+    .o-card__aside {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.o-card--center{
+    // margin: 0 auto;
+    @include media($mobile){
+        max-width: 100%;
+    }
+
+    max-width: 480px
+}
+
+.o-card--grid {
+    @include span-columns(4);
+    @include media($lg-desktop) {
+        @include span-columns(3);
+
+        &:nth-child(4n) {
+            @include omega;
+        }
+    }
+    @include media($desktop) {
+        @include span-columns(4);
+
+        &:nth-child(3n) {
+            @include omega;
+        }
+    }
+    @include media($tablet) {
+        @include span-columns(4);
+
+        &:nth-child(2n) {
+            @include omega;
+        }
+    }
+     @include media($tabletPortrait) {
+        @include span-columns(4);
+
+        &:nth-child(2n) {
+            @include omega;
+        }
+    }
+    @include media($mobile) {
+        @include span-columns(4);
+        @include omega;
+    }
+}

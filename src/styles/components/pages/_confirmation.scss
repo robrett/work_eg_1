@@ -1,0 +1,136 @@
+//-------------------------------------
+// Confirmation Page
+//-------------------------------------
+p-confirmation {
+    img#digitalPack {
+        display: block;
+        margin: 0 auto;
+        max-height: 12rem;
+    }
+    #topContainer {
+        @include span-columns(8);
+        @include shift(2);
+        @include media($mobile) {
+            @include span-columns(4);
+            @include shift(0);
+        }
+
+        text-align: center;
+
+        h2 {
+           font-weight: 200;
+
+           &:last-of-type {
+                margin-bottom: size(medium);
+           }
+        }
+        h4 i {
+            font-weight: 100;
+        }
+        .btn {
+            margin: size(medium) 0 size(huge);
+            padding: 1rem 2rem;
+        }
+        hr {
+            margin: size(large) 0;
+            border: none;
+            border-top: white 1px solid;
+        }
+    }
+    #midContainer {
+        .o-list li {
+            @include type-setting(0);
+        }
+        h4 {
+            @include media($mobile) {
+                @include type-setting(0);
+            }
+
+            margin-bottom: size(medium);
+            font-weight: 400
+        }
+        section {
+            @include span-columns(5);
+            @include media($mobile) {
+                @include span-columns(4);
+
+                margin-bottom: 0;
+            }
+
+            margin-bottom: size(large)
+        }
+        section:last-child {
+            @include span-columns(6);
+            @include shift(1);
+            @include media($mobile) {
+                @include span-columns(4);
+                @include shift(0);
+
+                .panel-group {
+                    margin-left: -$navPaddingMobile;
+                    width: calc(100% + #{$navPaddingMobile * 2});
+                }
+            }
+        }
+    }
+    #banner {
+        padding-top: size(big);
+        min-height: 30rem;
+        background-size: cover;
+
+        section {
+            @include span-columns(7);
+            @include shift(4);
+            @include media($mobile) {
+                @include span-columns(4);
+                @include shift(0);
+
+                padding-top: size(large);
+
+                h1:not(.large) {
+                    @include type-setting(2);
+                }
+            }
+
+            h1 {
+                color: $light;
+                text-align: center;
+                font-weight: 600;
+            }
+            .content {
+                @include span-columns(10);
+                @include shift(1);
+                @include media($mobile) {
+                    @include span-columns(4);
+                    @include shift(0);
+
+                    h2 {
+                        @include type-setting(3);
+                    }
+                }
+
+                margin-bottom: size(large);
+                text-align: center;
+
+                h2 {
+                    margin-bottom: 0;
+                    color: $yellow;
+                }
+                h1.large {
+                    line-height: 1.25em;
+                }
+            }
+            button {
+                @include span-columns(8);
+                @include shift(2);
+                @include media($mobile) {
+                    @include span-columns(4);
+                    @include shift(0);
+                }
+            }
+        }
+    }
+    #p-confirmation__mid_container {
+        background-color:$light-gray;
+    }
+}
